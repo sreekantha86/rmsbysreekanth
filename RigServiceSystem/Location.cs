@@ -13,6 +13,7 @@ namespace RigServiceSystem
     {
         public Location()
         {
+            //test
             InitializeComponent();
         }
     }
