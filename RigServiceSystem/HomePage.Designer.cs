@@ -62,6 +62,8 @@
             this.ribbonPanel8 = new System.Windows.Forms.RibbonPanel();
             this.cmdSchedule = new System.Windows.Forms.RibbonButton();
             this.cmdScheduleList = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel13 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton12 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab9 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
             this.cmdTicket = new System.Windows.Forms.RibbonButton();
@@ -81,8 +83,9 @@
             this.ribbon2 = new System.Windows.Forms.Ribbon();
             this.ribbonTab13 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel13 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton12 = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab8 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -269,6 +272,18 @@
             this.cmdScheduleList.Text = "Running Schedules";
             this.cmdScheduleList.Click += new System.EventHandler(this.cmdScheduleList_Click);
             // 
+            // ribbonPanel13
+            // 
+            this.ribbonPanel13.Items.Add(this.ribbonButton12);
+            this.ribbonPanel13.Text = "Equipment & Spares";
+            // 
+            // ribbonButton12
+            // 
+            this.ribbonButton12.Image = global::RigServiceSystem.Properties.Resources.equipement;
+            this.ribbonButton12.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton12.SmallImage")));
+            this.ribbonButton12.Text = "Equipement";
+            this.ribbonButton12.Click += new System.EventHandler(this.ribbonButton12_Click);
+            // 
             // ribbonTab9
             // 
             this.ribbonTab9.Panels.Add(this.ribbonPanel10);
@@ -391,6 +406,7 @@
             this.ribbon2.Tabs.Add(this.ribbonTab11);
             this.ribbon2.Tabs.Add(this.ribbonTab12);
             this.ribbon2.Tabs.Add(this.ribbonTab13);
+            this.ribbon2.Tabs.Add(this.ribbonTab8);
             this.ribbon2.TabsMargin = new System.Windows.Forms.Padding(10, 40, 10, 10);
             this.ribbon2.Text = "ribbon2";
             this.ribbon2.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
@@ -403,17 +419,22 @@
             // 
             this.ribbonPanel9.Text = "Equipments & Spares";
             // 
-            // ribbonPanel13
+            // ribbonTab8
             // 
-            this.ribbonPanel13.Items.Add(this.ribbonButton12);
-            this.ribbonPanel13.Text = "Equipment & Spares";
+            this.ribbonTab8.Panels.Add(this.ribbonPanel14);
+            this.ribbonTab8.Text = "Vendor Management";
             // 
-            // ribbonButton12
+            // ribbonPanel14
             // 
-            this.ribbonButton12.Image = global::RigServiceSystem.Properties.Resources.equipement;
-            this.ribbonButton12.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton12.SmallImage")));
-            this.ribbonButton12.Text = "Equipement";
-            this.ribbonButton12.Click += new System.EventHandler(this.ribbonButton12_Click);
+            this.ribbonPanel14.Items.Add(this.ribbonButton13);
+            this.ribbonPanel14.Text = "Vendor";
+            // 
+            // ribbonButton13
+            // 
+            this.ribbonButton13.Image = global::RigServiceSystem.Properties.Resources.user;
+            this.ribbonButton13.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton13.SmallImage")));
+            this.ribbonButton13.Text = "Vendors";
+            this.ribbonButton13.Click += new System.EventHandler(this.ribbonButton13_Click);
             // 
             // HomePage
             // 
@@ -494,6 +515,9 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel9;
         private System.Windows.Forms.RibbonPanel ribbonPanel13;
         private System.Windows.Forms.RibbonButton ribbonButton12;
+        private System.Windows.Forms.RibbonTab ribbonTab8;
+        private System.Windows.Forms.RibbonPanel ribbonPanel14;
+        private System.Windows.Forms.RibbonButton ribbonButton13;
     }
 }
 

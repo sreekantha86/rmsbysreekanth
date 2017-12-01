@@ -1,4 +1,4 @@
-﻿//using EMSRepository;
+﻿using RigRepository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +13,12 @@ namespace RigServiceSystem
 {
     public partial class VendorList : Form
     {
-        //DBFunctionRepository repo = new DBFunctionRepository();
+        DBFunctionRepository repo = new DBFunctionRepository();
         public VendorList()
         {
             InitializeComponent();
         }
-
-        private void cmdAddNew_Click(object sender, EventArgs e)
-        {
-            Vendor obj = new Vendor();
-            obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.ShowDialog(this);
-            FillGrid();
-        }
-
+        
         private void VendorList_Load(object sender, EventArgs e)
         {
             FillGrid();
@@ -35,13 +27,13 @@ namespace RigServiceSystem
         {
             try
             {
-                //DataSet ds = repo.fillComboDataset(@"select B.VendorId, B.VendorName, B.ContactPerson, C.CountryName, E.VendorTypeName
-                //            from Vendor B 
-                //            left join Country C on B.CountryId = C.CountryId
-                //            left join VendorType E on B.VendorTypeId = E.VendorTypeId
-                //            order by B.VendorName");
-                //
-                //gridControl1.DataSource = ds.Tables[0];
+                DataSet ds = repo.fillComboDataset(@"select B.VendorId, B.VendorName, B.ContactPerson, C.CountryName, E.VendorTypeName
+                            from Vendor B 
+                            left join Country C on B.CountryId = C.CountryId
+                            left join VendorType E on B.VendorTypeId = E.VendorTypeId
+                            order by B.VendorName");
+
+                gridControl1.DataSource = ds.Tables[0];
             }
             catch(Exception ex)
             {
@@ -62,7 +54,29 @@ namespace RigServiceSystem
             }
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        
+        private void cmdNew_Click(object sender, EventArgs e)
+        {
+            Vendor obj = new Vendor();
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.ShowDialog(this);
+            FillGrid();
+        }
+
+        private void cmdEdit_Click(object sender, EventArgs e)
+        {
+            int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "VendorId").ToString());
+            if (RowId > 0)
+            {
+                Vendor obj = new Vendor();
+                obj.VendorId = RowId;
+                obj.StartPosition = FormStartPosition.CenterScreen;
+                obj.ShowDialog(this);
+                FillGrid();
+            }
+        }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
         {
             int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "VendorId").ToString());
             try

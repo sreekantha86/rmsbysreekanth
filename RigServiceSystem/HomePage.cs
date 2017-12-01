@@ -339,5 +339,13 @@ namespace RigServiceSystem
             obj.StartPosition = FormStartPosition.CenterScreen;
             obj.Show();
         }
+
+        private void ribbonButton13_Click(object sender, EventArgs e)
+        {
+            VendorList obj = new VendorList();
+            obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.Show();
+        }
     }
 }

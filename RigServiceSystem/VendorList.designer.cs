@@ -1,4 +1,4 @@
-﻿namespace EMS
+﻿namespace RigServiceSystem
 {
     partial class VendorList
     {
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Delete = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdAddNew = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.VendorId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -37,34 +35,25 @@
             this.ContactPerson = new DevExpress.XtraGrid.Columns.GridColumn();
             this.VendorTypeName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Country = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cmdDelete = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdEdit = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdNew = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDelete.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Delete
-            // 
-            this.Delete.Location = new System.Drawing.Point(7, 383);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(75, 23);
-            this.Delete.TabIndex = 2;
-            this.Delete.Text = "Delete";
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // cmdAddNew
-            // 
-            this.cmdAddNew.Location = new System.Drawing.Point(687, 383);
-            this.cmdAddNew.Name = "cmdAddNew";
-            this.cmdAddNew.Size = new System.Drawing.Size(75, 23);
-            this.cmdAddNew.TabIndex = 3;
-            this.cmdAddNew.Text = "Add New";
-            this.cmdAddNew.Click += new System.EventHandler(this.cmdAddNew_Click);
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(2, 2);
+            this.gridControl1.Location = new System.Drawing.Point(2, 40);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(764, 358);
+            this.gridControl1.Size = new System.Drawing.Size(764, 373);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -125,31 +114,78 @@
             this.Country.Visible = true;
             this.Country.VisibleIndex = 3;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.cmdDelete);
+            this.panelControl1.Controls.Add(this.cmdEdit);
+            this.panelControl1.Controls.Add(this.cmdNew);
+            this.panelControl1.Location = new System.Drawing.Point(0, 2);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(768, 36);
+            this.panelControl1.TabIndex = 5;
+            // 
+            // cmdDelete
+            // 
+            this.cmdDelete.EditValue = global::RigServiceSystem.Properties.Resources.delete;
+            this.cmdDelete.Location = new System.Drawing.Point(738, 2);
+            this.cmdDelete.Name = "cmdDelete";
+            this.cmdDelete.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdDelete.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdDelete.Size = new System.Drawing.Size(28, 29);
+            this.cmdDelete.TabIndex = 2;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.EditValue = global::RigServiceSystem.Properties.Resources.edit;
+            this.cmdEdit.Location = new System.Drawing.Point(38, 3);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdEdit.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdEdit.Size = new System.Drawing.Size(28, 29);
+            this.cmdEdit.TabIndex = 1;
+            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
+            // 
+            // cmdNew
+            // 
+            this.cmdNew.EditValue = global::RigServiceSystem.Properties.Resources.new_small;
+            this.cmdNew.Location = new System.Drawing.Point(4, 2);
+            this.cmdNew.Name = "cmdNew";
+            this.cmdNew.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdNew.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdNew.Size = new System.Drawing.Size(28, 29);
+            this.cmdNew.TabIndex = 0;
+            this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
+            // 
             // VendorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(768, 415);
+            this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.Delete);
-            this.Controls.Add(this.cmdAddNew);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VendorList";
-            this.Text = "VendorList";
+            this.Text = "List of Vendors";
             this.Load += new System.EventHandler(this.VendorList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDelete.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton Delete;
-        private DevExpress.XtraEditors.SimpleButton cmdAddNew;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn VendorId;
@@ -157,5 +193,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn ContactPerson;
         private DevExpress.XtraGrid.Columns.GridColumn VendorTypeName;
         private DevExpress.XtraGrid.Columns.GridColumn Country;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PictureEdit cmdDelete;
+        private DevExpress.XtraEditors.PictureEdit cmdEdit;
+        private DevExpress.XtraEditors.PictureEdit cmdNew;
     }
 }
