@@ -45,6 +45,10 @@ namespace RigServiceSystem
                               ,[Email]
                               ,[VendorTypeId]
                               ,[CountryId]
+                              ,[CrNo]
+                              ,[GosiNo]
+                              ,[Zakaat]
+                              ,[ChamberNo]
                           FROM [dbo].[Vendor] WHERE [VendorId] = " + VendorId.ToString();
 
                 DataSet ds = repo.fillComboDataset(sql);
@@ -69,6 +73,10 @@ namespace RigServiceSystem
                         {
                             lstCountry.EditValue = Convert.ToInt32(item["CountryId"].ToString());
                         }
+                        txtCRNo.Text = item["CrNo"].ToString();
+                        txtGosiNo.Text = item["GosiNo"].ToString();
+                        txtZakaat.Text = item["Zakaat"].ToString();
+                        txtChamberNo.Text = item["ChamberNo"].ToString();
                     }
                 }
             }
@@ -121,7 +129,11 @@ namespace RigServiceSystem
                                ,FAX
                                ,PAN
                                ,ContactPerson
-                               ,Email)
+                               ,Email
+                               ,CrNo
+                               ,GosiNo
+                               ,Zakaat
+                               ,ChamberNo)
                          output INSERTED.VendorId
                          VALUES
                                (@VendorName
@@ -131,7 +143,11 @@ namespace RigServiceSystem
                                ,@FAX
                                ,@PAN
                                ,@ContactPerson
-                               ,@Email)";
+                               ,@Email
+                               ,@CrNo
+                               ,@GosiNo
+                               ,@Zakaat
+                               ,@ChamberNo)";
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@VendorName", txtName.Text));
                 param.Add(new SqlParameter("@Address", txtAdress.Text));
@@ -141,7 +157,10 @@ namespace RigServiceSystem
                 param.Add(new SqlParameter("@PAN", txtPAN.Text));
                 param.Add(new SqlParameter("@ContactPerson", txtContactPerson.Text));
                 param.Add(new SqlParameter("@Email", txtEmail.Text));
-
+                param.Add(new SqlParameter("@CrNo", txtCRNo.Text));
+                param.Add(new SqlParameter("@GosiNo", txtGosiNo.Text));
+                param.Add(new SqlParameter("@Zakaat", txtZakaat.Text));
+                param.Add(new SqlParameter("@ChamberNo", txtChamberNo.Text));
 
                 int Id = repo.ExecuteQueryWithParameters(sql, param, "Yes");
 
@@ -181,6 +200,10 @@ namespace RigServiceSystem
                                ,[PAN] = @PAN
                                ,[ContactPerson] = @ContactPerson
                                ,[Email] = @Email
+                               ,[CrNo] = @CrNo
+                               ,[GosiNo] = @GosiNo
+                               ,[Zakaat] = @Zakaat
+                               ,[ChamberNo] = @ChamberNo
                          WHERE VendorId = '" + VendorId + @"'";
 
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -192,7 +215,10 @@ namespace RigServiceSystem
                 param.Add(new SqlParameter("@PAN", txtPAN.Text));
                 param.Add(new SqlParameter("@ContactPerson", txtContactPerson.Text));
                 param.Add(new SqlParameter("@Email", txtEmail.Text));
-
+                param.Add(new SqlParameter("@CrNo", txtCRNo.Text));
+                param.Add(new SqlParameter("@GosiNo", txtGosiNo.Text));
+                param.Add(new SqlParameter("@Zakaat", txtZakaat.Text));
+                param.Add(new SqlParameter("@ChamberNo", txtChamberNo.Text));
 
                 int Id = repo.ExecuteQueryWithParameters(sql, param);
 

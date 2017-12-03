@@ -443,6 +443,16 @@ namespace RigServiceSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vendors {
+            get {
+                object obj = ResourceManager.GetObject("vendors", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Well {
             get {
                 object obj = ResourceManager.GetObject("Well", resourceCulture);

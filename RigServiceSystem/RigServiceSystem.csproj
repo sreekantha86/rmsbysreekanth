@@ -529,6 +529,7 @@
     <None Include="Resources\Taskcompletion.png" />
     <None Include="Resources\RigMainPage2.JPG" />
     <None Include="Resources\RigLogin1.JPG" />
+    <None Include="Resources\vendors.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

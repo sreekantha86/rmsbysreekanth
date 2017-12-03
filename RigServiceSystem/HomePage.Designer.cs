@@ -67,7 +67,6 @@
             this.ribbonTab9 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
             this.cmdTicket = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton10 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab10 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
             this.cmdRig = new System.Windows.Forms.RibbonButton();
@@ -82,10 +81,10 @@
             this.ribbonButton11 = new System.Windows.Forms.RibbonButton();
             this.ribbon2 = new System.Windows.Forms.Ribbon();
             this.ribbonTab13 = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.ribbonTab8 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -292,7 +291,6 @@
             // ribbonPanel10
             // 
             this.ribbonPanel10.Items.Add(this.cmdTicket);
-            this.ribbonPanel10.Items.Add(this.ribbonButton10);
             this.ribbonPanel10.Text = "Ticket Management";
             // 
             // cmdTicket
@@ -300,11 +298,6 @@
             this.cmdTicket.Image = global::RigServiceSystem.Properties.Resources.tickets;
             this.cmdTicket.SmallImage = ((System.Drawing.Image)(resources.GetObject("cmdTicket.SmallImage")));
             this.cmdTicket.Text = "Create Ticket";
-            // 
-            // ribbonButton10
-            // 
-            this.ribbonButton10.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton10.Image")));
-            this.ribbonButton10.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton10.SmallImage")));
             // 
             // ribbonTab10
             // 
@@ -415,10 +408,6 @@
             // 
             this.ribbonTab13.Text = "Utilities";
             // 
-            // ribbonPanel9
-            // 
-            this.ribbonPanel9.Text = "Equipments & Spares";
-            // 
             // ribbonTab8
             // 
             this.ribbonTab8.Panels.Add(this.ribbonPanel14);
@@ -431,10 +420,14 @@
             // 
             // ribbonButton13
             // 
-            this.ribbonButton13.Image = global::RigServiceSystem.Properties.Resources.user;
+            this.ribbonButton13.Image = global::RigServiceSystem.Properties.Resources.vendors;
             this.ribbonButton13.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton13.SmallImage")));
             this.ribbonButton13.Text = "Vendors";
             this.ribbonButton13.Click += new System.EventHandler(this.ribbonButton13_Click);
+            // 
+            // ribbonPanel9
+            // 
+            this.ribbonPanel9.Text = "Equipments & Spares";
             // 
             // HomePage
             // 
@@ -503,7 +496,6 @@
         private System.Windows.Forms.RibbonButton cmdScheduleList;
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton cmdTicket;
-        private System.Windows.Forms.RibbonButton ribbonButton10;
         private System.Windows.Forms.RibbonPanel ribbonPanel11;
         private System.Windows.Forms.RibbonButton cmdOperationSearch;
         private System.Windows.Forms.RibbonButton cmdRigInformation;
