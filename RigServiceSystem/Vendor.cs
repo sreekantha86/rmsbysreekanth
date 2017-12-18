@@ -35,12 +35,13 @@ namespace RigServiceSystem
             try
             {
                 string sql = @"SELECT [VendorId]
+                              ,[VendorCode]
                               ,[VendorName]
                               ,[Address]
                               ,[PhoneNumber]
                               ,[City]
                               ,[FAX]
-                              ,[PAN]
+                              ,[VAT]
                               ,[ContactPerson]
                               ,[Email]
                               ,[VendorTypeId]
@@ -49,6 +50,11 @@ namespace RigServiceSystem
                               ,[GosiNo]
                               ,[Zakaat]
                               ,[ChamberNo]
+                              ,[VATExpiry]
+                              ,[ChamberNoExpiry]
+                              ,[CrNoExpiry]
+                              ,[GosiNoExpiry]
+                              ,[ZakaatExpiry]
                           FROM [dbo].[Vendor] WHERE [VendorId] = " + VendorId.ToString();
 
                 DataSet ds = repo.fillComboDataset(sql);
@@ -57,6 +63,7 @@ namespace RigServiceSystem
                 {
                     foreach (DataRow item in ds.Tables[0].Rows)
                     {
+                        txtVendorCode.Text = item["VendorCode"].ToString();
                         txtName.Text = item["VendorName"].ToString();
                         txtPhoneNumber.Text = item["PhoneNumber"].ToString();
                         txtFax.Text = item["Fax"].ToString();
@@ -64,7 +71,7 @@ namespace RigServiceSystem
                         txtCity.Text = item["City"].ToString();
                         txtAdress.Text = item["Address"].ToString();
                         txtEmail.Text = item["Email"].ToString();
-                        txtPAN.Text = item["PAN"].ToString();
+                        txtVat.Text = item["VAT"].ToString();
                         if (item["VendorTypeId"].ToString() != "0")
                         {
                             lstVendorType.EditValue = Convert.ToInt32(item["VendorTypeId"].ToString());
@@ -77,6 +84,11 @@ namespace RigServiceSystem
                         txtGosiNo.Text = item["GosiNo"].ToString();
                         txtZakaat.Text = item["Zakaat"].ToString();
                         txtChamberNo.Text = item["ChamberNo"].ToString();
+                        txtVATExpiry.Text = item["VATExpiry"].ToString() != "" ? Convert.ToDateTime(item["VATExpiry"].ToString()).ToString("dd/MMM/yyyy"):"";
+                        txtChamberExpiry.Text = item["ChamberNoExpiry"].ToString() != "" ? Convert.ToDateTime(item["ChamberNoExpiry"].ToString()).ToString("dd/MMM/yyyy"):"";
+                        txtCRExpiry.Text = item["CrNoExpiry"].ToString() != "" ? Convert.ToDateTime(item["CrNoExpiry"].ToString()).ToString("dd/MMM/yyyy") : "";
+                        txtGosiExpiry.Text = item["GosiNoExpiry"].ToString() != "" ? Convert.ToDateTime(item["GosiNoExpiry"].ToString()).ToString("dd/MMM/yyyy") : "";
+                        txtZakaatExpiry.Text = item["ZakaatExpiry"].ToString() != "" ? Convert.ToDateTime(item["ZakaatExpiry"].ToString()).ToString("dd/MMM/yyyy") : "";
                     }
                 }
             }
@@ -122,45 +134,83 @@ namespace RigServiceSystem
             try
             {
                 string sql = @"INSERT INTO Vendor
-                               (VendorName
+                               (VendorCode
+                               ,VendorName
                                ,Address
                                ,PhoneNumber
                                ,City
                                ,FAX
-                               ,PAN
+                               ,VAT
                                ,ContactPerson
                                ,Email
                                ,CrNo
                                ,GosiNo
                                ,Zakaat
-                               ,ChamberNo)
+                               ,ChamberNo
+                               ,VATExpiry
+                               ,ChamberNoExpiry
+                               ,CrNoExpiry
+                               ,GosiNoExpiry
+                               ,ZakaatExpiry)
                          output INSERTED.VendorId
                          VALUES
-                               (@VendorName
+                               (@VendorCode
+                               ,@VendorName
                                ,@Address
                                ,@PhoneNumber
                                ,@City
                                ,@FAX
-                               ,@PAN
+                               ,@VAT
                                ,@ContactPerson
                                ,@Email
                                ,@CrNo
                                ,@GosiNo
                                ,@Zakaat
-                               ,@ChamberNo)";
+                               ,@ChamberNo
+                               ,@VATExpiry
+                               ,@ChamberNoExpiry
+                               ,@CrNoExpiry
+                               ,@GosiNoExpiry
+                               ,@ZakaatExpiry)";
                 List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@VendorCode", txtVendorCode.Text));
                 param.Add(new SqlParameter("@VendorName", txtName.Text));
                 param.Add(new SqlParameter("@Address", txtAdress.Text));
                 param.Add(new SqlParameter("@PhoneNumber", txtPhoneNumber.Text));
                 param.Add(new SqlParameter("@City", txtCity.Text));
                 param.Add(new SqlParameter("@FAX", txtFax.Text));
-                param.Add(new SqlParameter("@PAN", txtPAN.Text));
+                param.Add(new SqlParameter("@VAT", txtVat.Text));
                 param.Add(new SqlParameter("@ContactPerson", txtContactPerson.Text));
                 param.Add(new SqlParameter("@Email", txtEmail.Text));
                 param.Add(new SqlParameter("@CrNo", txtCRNo.Text));
                 param.Add(new SqlParameter("@GosiNo", txtGosiNo.Text));
                 param.Add(new SqlParameter("@Zakaat", txtZakaat.Text));
                 param.Add(new SqlParameter("@ChamberNo", txtChamberNo.Text));
+
+                if (txtVATExpiry.Text == "")
+                    param.Add(new SqlParameter("@VATExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@VATExpiry", txtVATExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtChamberExpiry.Text == "")
+                    param.Add(new SqlParameter("@ChamberNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@ChamberNoExpiry", txtChamberExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtCRExpiry.Text == "")
+                    param.Add(new SqlParameter("@CrNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@CrNoExpiry", txtCRExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtGosiExpiry.Text == "")
+                    param.Add(new SqlParameter("@GosiNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@GosiNoExpiry", txtGosiExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtZakaatExpiry.Text == "")
+                    param.Add(new SqlParameter("@ZakaatExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@ZakaatExpiry", txtZakaatExpiry.DateTime.ToString("dd/MMM/yyyy")));
 
                 int Id = repo.ExecuteQueryWithParameters(sql, param, "Yes");
 
@@ -192,27 +242,34 @@ namespace RigServiceSystem
             try
             {
                 string sql = @"UPDATE [dbo].[Vendor] SET
-                               [VendorName] = @VendorName
+                                [VendorCode] = @VendorCode
+                               ,[VendorName] = @VendorName
                                ,[Address] = @Address
                                ,[PhoneNumber] = @PhoneNumber
                                ,[City] = @City
                                ,[FAX] = @FAX
-                               ,[PAN] = @PAN
+                               ,[VAT] = @VAT
                                ,[ContactPerson] = @ContactPerson
                                ,[Email] = @Email
                                ,[CrNo] = @CrNo
                                ,[GosiNo] = @GosiNo
                                ,[Zakaat] = @Zakaat
                                ,[ChamberNo] = @ChamberNo
+                               ,[VATExpiry] = @VATExpiry
+                               ,[ChamberNoExpiry] = @ChamberNoExpiry
+                               ,[CrNoExpiry] = @CrNoExpiry
+                               ,[GosiNoExpiry] = @GosiNoExpiry
+                               ,[ZakaatExpiry] = @ZakaatExpiry
                          WHERE VendorId = '" + VendorId + @"'";
 
                 List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@VendorCode", txtVendorCode.Text));
                 param.Add(new SqlParameter("@VendorName", txtName.Text));
                 param.Add(new SqlParameter("@Address", txtAdress.Text));
                 param.Add(new SqlParameter("@PhoneNumber", txtPhoneNumber.Text));
                 param.Add(new SqlParameter("@City", txtCity.Text));
                 param.Add(new SqlParameter("@FAX", txtFax.Text));
-                param.Add(new SqlParameter("@PAN", txtPAN.Text));
+                param.Add(new SqlParameter("@VAT", txtVat.Text));
                 param.Add(new SqlParameter("@ContactPerson", txtContactPerson.Text));
                 param.Add(new SqlParameter("@Email", txtEmail.Text));
                 param.Add(new SqlParameter("@CrNo", txtCRNo.Text));
@@ -220,6 +277,31 @@ namespace RigServiceSystem
                 param.Add(new SqlParameter("@Zakaat", txtZakaat.Text));
                 param.Add(new SqlParameter("@ChamberNo", txtChamberNo.Text));
 
+                if (txtVATExpiry.Text == "")
+                     param.Add(new SqlParameter("@VATExpiry", System.DBNull.Value));
+                else
+                     param.Add(new SqlParameter("@VATExpiry", txtVATExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtChamberExpiry.Text == "")
+                    param.Add(new SqlParameter("@ChamberNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@ChamberNoExpiry", txtChamberExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtCRExpiry.Text == "")
+                    param.Add(new SqlParameter("@CrNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@CrNoExpiry", txtCRExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtGosiExpiry.Text == "")
+                    param.Add(new SqlParameter("@GosiNoExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@GosiNoExpiry", txtGosiExpiry.DateTime.ToString("dd/MMM/yyyy")));
+
+                if (txtZakaatExpiry.Text == "")
+                    param.Add(new SqlParameter("@ZakaatExpiry", System.DBNull.Value));
+                else
+                    param.Add(new SqlParameter("@ZakaatExpiry", txtZakaatExpiry.DateTime.ToString("dd/MMM/yyyy")));
+                                
                 int Id = repo.ExecuteQueryWithParameters(sql, param);
 
                 if (Id > 0)
@@ -264,6 +346,11 @@ namespace RigServiceSystem
         private void cmdCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dateEdit3_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
