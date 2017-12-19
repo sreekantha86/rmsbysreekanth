@@ -10,7 +10,7 @@ namespace RigRepository
     {
         public SQLiteConnection()
         {
-            
+            ///test
         }
         public void CreateDatabase()
         {
