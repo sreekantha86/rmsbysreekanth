@@ -20,10 +20,9 @@ namespace RigRepository
                 con = new SqlConnection(conString);
                 con.Open();
             }
-            catch
+            catch(Exception ex)
             {
-                con.Close();
-                con.Open();
+                
             }
         }
         public void closeConneCtion()

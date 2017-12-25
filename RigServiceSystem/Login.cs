@@ -33,39 +33,43 @@ namespace RigServiceSystem
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            HomePage page = new HomePage();
-            page.Show();
-            //if (txtUserName.Text == "")
-            //{
-            //    MessageBox.Show("Please enter user name.");
-            //    txtUserName.Focus();
-            //    return;
-            //}
-            //if (txtPassword.Text == "")
-            //{
-            //    MessageBox.Show("Please enter password.");
-            //    txtPassword.Focus();
-            //    return;
-            //}
-            //if(lstFinancialYear.Text == "")
-            //{
-            //    MessageBox.Show("Please select Financial Year.");
-            //    lstFinancialYear.Focus();
-            //    return;
-            //}
-            //if(VerifyUser())
-            //{
-            //    Program.FinancialYearId = Convert.ToInt32(lstFinancialYear.Properties.GetKeyValueByDisplayValue(lstFinancialYear.Text).ToString());
-            //    Program.FinancialYearName = lstFinancialYear.Text;
-            //    this.Hide();
-            //    HomePage page = new HomePage();
-            //    page.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Either Username or Password is Wrong.");
-            //}
+            if (!CheckTempDB())
+            {
+                MessageBox.Show("Configuring Temp DB failed. Please contact System Administrator");
+            }
+            //this.Hide();
+            //HomePage page = new HomePage();
+            //page.Show();
+            if (txtUserName.Text == "")
+            {
+                MessageBox.Show("Please enter user name.");
+                txtUserName.Focus();
+                return;
+            }
+            if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Please enter password.");
+                txtPassword.Focus();
+                return;
+            }
+            if (lstFinancialYear.Text == "")
+            {
+                MessageBox.Show("Please select Financial Year.");
+                lstFinancialYear.Focus();
+                return;
+            }
+            if (VerifyUser())
+            {
+                //Program.FinancialYearId = Convert.ToInt32(lstFinancialYear.Properties.GetKeyValueByDisplayValue(lstFinancialYear.Text).ToString());
+                //Program.FinancialYearName = lstFinancialYear.Text;
+                this.Hide();
+                HomePage page = new HomePage();
+                page.Show();
+            }
+            else
+            {
+                MessageBox.Show("Either Username or Password is Wrong.");
+            }
             
         }
         bool VerifyUser()
@@ -77,18 +81,8 @@ namespace RigServiceSystem
                 string saltedPassword = String.Format("{0}{1}{2}", saltPrefix, txtPassword.Text, saltSuffix);
                 string hashedPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(saltedPassword, "sha1");
 
-                string query = "select * from Users where username = '" + txtUserName.Text + "' and UserPassword = '" + hashedPassword + "';";
-                DataSet ds = repo.fillComboDataset(query);
-                if(ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
-                {
-                    Program.UserName = ds.Tables[0].Rows[0]["UserFullName"].ToString();
-                    Program.UserId = ds.Tables[0].Rows[0]["UserId"].ToString();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return GetUserData(txtUserName.Text, hashedPassword);
+                
             }
             catch(Exception ex)
             {
@@ -100,6 +94,48 @@ namespace RigServiceSystem
         private void Login_Load(object sender, EventArgs e)
         {
             fillFinancialYear();
+        }
+        private bool CheckTempDB()
+        {
+            try
+            {
+                SQLiteFunctionRepository tempRep = new SQLiteFunctionRepository();
+                UserRepository repo = new UserRepository();
+                if(!tempRep.IsTempDBExists())
+                {
+                    tempRep.CreateSqlLiteDatabase();
+                    repo.CreateUserTable();
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error:" + (ex.InnerException != null ? ex.InnerException.Message : ex.Message));
+                return false;
+            }
+        }
+        private bool GetUserData(string username, string password)
+        {
+            try
+            {
+                UserRepository tCon = new UserRepository();
+                DataSet ds = tCon.GetUserData(username, password);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    Program.UserName = ds.Tables[0].Rows[0]["UserFullName"].ToString();
+                    Program.UserId = ds.Tables[0].Rows[0]["UserId"].ToString();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + (ex.InnerException != null ? ex.InnerException.Message : ex.Message));
+                return false;
+            }
         }
     }
 }

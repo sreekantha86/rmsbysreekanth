@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RigRepository", "RigRepository\RigRepository.csproj", "{E7E61A71-B324-4D8C-A602-F7CFF4EC6C48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RigServiceSystem", "RigServiceSystem\RigServiceSystem.csproj", "{89A37F28-28FB-4CAC-89F8-662F8017A2BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E7E61A71-B324-4D8C-A602-F7CFF4EC6C48} = {E7E61A71-B324-4D8C-A602-F7CFF4EC6C48}
+	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RigServiceSystemExe", "RigServiceSystemExe\RigServiceSystemExe.vdproj", "{8A4E042D-EB2E-4DFE-A9AD-5181F2384821}"
 EndProject

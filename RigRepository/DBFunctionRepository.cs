@@ -10,17 +10,16 @@ using System.Xml;
 
 namespace RigRepository
 {
-    public class DBFunctionRepository
+    public class DBFunctionRepository:DBConnectionRepository
     {
         public SqlDataAdapter execAdapter(string qry)
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataAdapter da = new SqlDataAdapter();
-            DBConnectionRepository con = new DBConnectionRepository();
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = qry;
 
@@ -33,7 +32,7 @@ namespace RigRepository
             finally
             {
                 cmd.Dispose();
-                con.closeConneCtion();
+                closeConneCtion();
             }
 
 
@@ -43,11 +42,11 @@ namespace RigRepository
         public void execQry(string qry)
         {
             SqlCommand cmd = new SqlCommand();
-            DBConnectionRepository con = new DBConnectionRepository();
+            
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = qry;
                 cmd.ExecuteNonQuery();
@@ -59,7 +58,7 @@ namespace RigRepository
             finally
             {
                 cmd.Dispose();
-                con.closeConneCtion();
+                closeConneCtion();
             }
         }
 
@@ -86,10 +85,9 @@ namespace RigRepository
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader dr;
-            DBConnectionRepository con = new DBConnectionRepository();
 
-            con.OpenConnection();
-            cmd.Connection = con.getConnection();
+            OpenConnection();
+            cmd.Connection = getConnection();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = qry;
             dr = cmd.ExecuteReader();
@@ -101,13 +99,12 @@ namespace RigRepository
         public string execScalar(string qry)
         {
             SqlCommand cmd = new SqlCommand();
-            DBConnectionRepository con = new DBConnectionRepository();
-
+            
             string res = "";
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = qry;
                 res = cmd.ExecuteScalar().ToString();
@@ -118,7 +115,7 @@ namespace RigRepository
             }
             finally
             {
-                con.closeConneCtion();
+                closeConneCtion();
                 cmd.Dispose();
             }
             return res;
@@ -127,11 +124,11 @@ namespace RigRepository
         public List<SqlParameter> executeStoredProc(string procName, List<SqlParameter> param)
         {
             SqlCommand cmd = new SqlCommand();
-            DBConnectionRepository con = new DBConnectionRepository();
+
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = procName;
 
@@ -165,7 +162,7 @@ namespace RigRepository
                     i++;
                 }
 
-                con.closeConneCtion();
+                closeConneCtion();
                 cmd.Dispose();
             }
 
@@ -175,13 +172,12 @@ namespace RigRepository
         public DataSet fillComboDataset(string query)
         {
             SqlCommand cmd = new SqlCommand();
-            DBConnectionRepository con = new DBConnectionRepository();
             DataSet DS = new DataSet();
             SqlDataAdapter DA = new SqlDataAdapter();
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = query;
                 cmd.CommandTimeout = 10000;
@@ -195,7 +191,7 @@ namespace RigRepository
             }
             finally
             {
-                con.closeConneCtion();
+                closeConneCtion();
                 cmd.Dispose();
             }
             return DS;
@@ -203,14 +199,13 @@ namespace RigRepository
 
         public DataSet FillDataSetAsXml(string procName, List<SqlParameter> param)
         {
-            DBConnectionRepository con = new DBConnectionRepository();
             SqlCommand cmd = new SqlCommand();
             DataSet DS = new DataSet();
             XmlReader XR;
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = procName;
                 cmd.Parameters.Clear();
@@ -222,8 +217,6 @@ namespace RigRepository
                         cmd.Parameters.Add(p);
                     }
                 }
-
-
                 XR = cmd.ExecuteXmlReader();
                 DS.ReadXml(XR);
             }
@@ -233,7 +226,7 @@ namespace RigRepository
             }
             finally
             {
-                con.closeConneCtion();
+                closeConneCtion();
                 cmd.Dispose();
             }
 
@@ -242,14 +235,13 @@ namespace RigRepository
 
         public DataSet fillDatasetNonXml(string procName, List<SqlParameter> param)
         {
-            DBConnectionRepository con = new DBConnectionRepository();
             SqlCommand cmd = new SqlCommand();
             DataSet Ds = new DataSet();
             SqlDataAdapter Da = new SqlDataAdapter();
             try
             {
-                con.OpenConnection();
-                cmd.Connection = con.getConnection();
+                OpenConnection();
+                cmd.Connection = getConnection();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = procName;
                 cmd.CommandTimeout = 10000;
@@ -272,7 +264,7 @@ namespace RigRepository
             }
             finally
             {
-                con.closeConneCtion();
+                closeConneCtion();
                 cmd.Dispose();
             }
 
@@ -280,15 +272,14 @@ namespace RigRepository
         }
         public int ExecuteQueryWithParameters(string Query, List<SqlParameter> parameter, string ReturnId = "No")
         {
-            DBConnectionRepository con = new DBConnectionRepository();
             SqlCommand cmd;
             int count = 0;
             try
             {
-                cmd = new SqlCommand(Query, con.getConnection());
-                con.OpenConnection();
+                cmd = new SqlCommand(Query, getConnection());
+                OpenConnection();
 
-                cmd = new SqlCommand(Query, con.getConnection());
+                cmd = new SqlCommand(Query, getConnection());
 
                 if (parameter.Count > 0)
                 {
@@ -312,7 +303,7 @@ namespace RigRepository
             }
             finally
             {
-                con.closeConneCtion();
+                closeConneCtion();
             }
 
             return count;
