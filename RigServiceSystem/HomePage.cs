@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RigRepository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -114,6 +115,7 @@ namespace RigServiceSystem
         {
             this.Text = this.Text + " - " + Program.FinancialYearName;
             toolStripStatusLabel.Text = "User - " + Program.UserName;
+            SyncLocalDB.RunWorkerAsync();
         }
 
         private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
@@ -346,6 +348,31 @@ namespace RigServiceSystem
             obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
             obj.Show();
+        }
+
+        private void SyncLocalDB_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                SyncLocalDBRepository repo = new SyncLocalDBRepository();
+                repo.SyncCountry();
+                repo.SyncVendorType();
+            }
+            catch(Exception ex)
+            {
+                SyncLocalDB.CancelAsync();
+                MessageBox.Show("Syncing of Local DB failed. Error:" + ex.Message);
+            }
+        }
+
+        private void SyncLocalDB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void SyncLocalDB_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
         }
     }
 }

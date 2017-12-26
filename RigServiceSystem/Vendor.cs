@@ -15,6 +15,7 @@ namespace RigServiceSystem
     public partial class Vendor : Form
     {
         DBFunctionRepository repo = new DBFunctionRepository();
+        VendorRepository vendor = new VendorRepository();
         public int VendorId;
         public Vendor()
         {

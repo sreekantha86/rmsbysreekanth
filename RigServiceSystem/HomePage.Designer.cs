@@ -85,6 +85,7 @@
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
+            this.SyncLocalDB = new System.ComponentModel.BackgroundWorker();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -429,6 +430,14 @@
             // 
             this.ribbonPanel9.Text = "Equipments & Spares";
             // 
+            // SyncLocalDB
+            // 
+            this.SyncLocalDB.WorkerReportsProgress = true;
+            this.SyncLocalDB.WorkerSupportsCancellation = true;
+            this.SyncLocalDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SyncLocalDB_DoWork);
+            this.SyncLocalDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.SyncLocalDB_ProgressChanged);
+            this.SyncLocalDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SyncLocalDB_RunWorkerCompleted);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +519,7 @@
         private System.Windows.Forms.RibbonTab ribbonTab8;
         private System.Windows.Forms.RibbonPanel ribbonPanel14;
         private System.Windows.Forms.RibbonButton ribbonButton13;
+        private System.ComponentModel.BackgroundWorker SyncLocalDB;
     }
 }
 
