@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.RibbonHelpers;
@@ -354,9 +355,20 @@ namespace RigServiceSystem
         {
             try
             {
-                SyncLocalDBRepository repo = new SyncLocalDBRepository();
-                repo.SyncCountry();
-                repo.SyncVendorType();
+                while(!SyncLocalDB.CancellationPending)
+                {
+                    SyncLocalDBRepository repo = new SyncLocalDBRepository();
+                    repo.SyncCountry();
+                    repo.SyncVendorType();
+                    repo.SyncVendorMaster();
+                    Thread.Sleep(1000);     
+                }
+                e.Cancel = true;
+                //SyncLocalDBRepository repo = new SyncLocalDBRepository();
+                //repo.SyncCountry();
+                //repo.SyncVendorType();
+                //repo.SyncVendorMaster();
+                //Thread.Sleep(1000);             
             }
             catch(Exception ex)
             {

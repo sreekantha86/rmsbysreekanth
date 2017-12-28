@@ -86,6 +86,7 @@
             this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.SyncLocalDB = new System.ComponentModel.BackgroundWorker();
+            this.syncTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -438,6 +439,10 @@
             this.SyncLocalDB.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.SyncLocalDB_ProgressChanged);
             this.SyncLocalDB.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SyncLocalDB_RunWorkerCompleted);
             // 
+            // syncTimer
+            // 
+            this.syncTimer.Interval = 1000;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,6 +525,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel14;
         private System.Windows.Forms.RibbonButton ribbonButton13;
         private System.ComponentModel.BackgroundWorker SyncLocalDB;
+        private System.Windows.Forms.Timer syncTimer;
     }
 }
 

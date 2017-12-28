@@ -14,6 +14,7 @@ namespace RigServiceSystem
     public partial class VendorList : Form
     {
         DBFunctionRepository repo = new DBFunctionRepository();
+        VendorRepository vendor = new VendorRepository();
         public VendorList()
         {
             InitializeComponent();
@@ -27,11 +28,7 @@ namespace RigServiceSystem
         {
             try
             {
-                DataSet ds = repo.fillComboDataset(@"select B.VendorId, B.VendorName, B.ContactPerson, C.CountryName, E.VendorTypeName
-                            from Vendor B 
-                            left join Country C on B.CountryId = C.CountryId
-                            left join VendorType E on B.VendorTypeId = E.VendorTypeId
-                            order by B.VendorName");
+                DataSet ds = vendor.GetVendorList();
 
                 gridControl1.DataSource = ds.Tables[0];
             }
