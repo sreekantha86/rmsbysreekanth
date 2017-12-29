@@ -87,7 +87,15 @@
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.SyncLocalDB = new System.ComponentModel.BackgroundWorker();
             this.syncTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelFavorites = new System.Windows.Forms.Panel();
+            this.gridFavorites = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.FyId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.FyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip.SuspendLayout();
+            this.panelFavorites.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripStatusLabel
@@ -340,6 +348,7 @@
             this.cmdRigLocationMap.Image = global::RigServiceSystem.Properties.Resources.rig_location_map;
             this.cmdRigLocationMap.SmallImage = ((System.Drawing.Image)(resources.GetObject("cmdRigLocationMap.SmallImage")));
             this.cmdRigLocationMap.Text = "Rig Location MAP";
+            this.cmdRigLocationMap.Click += new System.EventHandler(this.cmdRigLocationMap_Click);
             // 
             // ribbonPanel11
             // 
@@ -443,6 +452,54 @@
             // 
             this.syncTimer.Interval = 1000;
             // 
+            // panelFavorites
+            // 
+            this.panelFavorites.Controls.Add(this.gridFavorites);
+            this.panelFavorites.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelFavorites.Location = new System.Drawing.Point(720, 151);
+            this.panelFavorites.Name = "panelFavorites";
+            this.panelFavorites.Size = new System.Drawing.Size(194, 292);
+            this.panelFavorites.TabIndex = 7;
+            // 
+            // gridFavorites
+            // 
+            this.gridFavorites.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridFavorites.Location = new System.Drawing.Point(0, 0);
+            this.gridFavorites.MainView = this.gridView1;
+            this.gridFavorites.Name = "gridFavorites";
+            this.gridFavorites.Size = new System.Drawing.Size(194, 292);
+            this.gridFavorites.TabIndex = 1;
+            this.gridFavorites.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridFavorites.DoubleClick += new System.EventHandler(this.gridFavorites_DoubleClick);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.FyId,
+            this.FyName});
+            this.gridView1.GridControl = this.gridFavorites;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // FyId
+            // 
+            this.FyId.Caption = "Id";
+            this.FyId.FieldName = "FormName";
+            this.FyId.Name = "FyId";
+            // 
+            // FyName
+            // 
+            this.FyName.Caption = "Favorites";
+            this.FyName.FieldName = "FormTitle";
+            this.FyName.Name = "FyName";
+            this.FyName.OptionsColumn.AllowEdit = false;
+            this.FyName.Visible = true;
+            this.FyName.VisibleIndex = 0;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +507,7 @@
             this.BackgroundImage = global::RigServiceSystem.Properties.Resources.RigMainPage2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 465);
+            this.Controls.Add(this.panelFavorites);
             this.Controls.Add(this.ribbon2);
             this.Controls.Add(this.statusStrip);
             this.DoubleBuffered = true;
@@ -462,6 +520,9 @@
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.panelFavorites.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,6 +587,11 @@
         private System.Windows.Forms.RibbonButton ribbonButton13;
         private System.ComponentModel.BackgroundWorker SyncLocalDB;
         private System.Windows.Forms.Timer syncTimer;
+        private System.Windows.Forms.Panel panelFavorites;
+        private DevExpress.XtraGrid.GridControl gridFavorites;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn FyId;
+        private DevExpress.XtraGrid.Columns.GridColumn FyName;
     }
 }
 

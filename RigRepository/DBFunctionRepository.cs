@@ -61,6 +61,35 @@ namespace RigRepository
                 closeConneCtion();
             }
         }
+        public void execQry(string qry, List<SqlParameter> param)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                OpenConnection();
+                cmd.Connection = getConnection();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = qry;
+                if (param.Count > 0)
+                {
+                    foreach (SqlParameter p in param)
+                    {
+                        cmd.Parameters.Add(p);
+                    }
+                }
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                closeConneCtion();
+            }
+        }
 
         public DataTable RemoveDuplicateRows(DataTable dTable, string colName)
         {

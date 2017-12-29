@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace RigRepository
 {
@@ -60,6 +61,41 @@ namespace RigRepository
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public void AddToFavoriteForms(string FormName, string TitleName, string UserId)
+        {
+            try
+            {
+                string query = @"INSERT INTO [UserFavoriteForms](UserId, FormName, FormTitle)
+                VALUES(@UserId, @FormName, @FormTitle)";
+
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@UserId", UserId));
+                param.Add(new SqlParameter("@FormName", FormName));
+                param.Add(new SqlParameter("@FormTitle", TitleName));
+
+                fun.OpenConnection();
+                fun.execQry(query,param);
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }
+        }
+
+        public DataSet FillFavorites(string userId)
+        {
+            try
+            {
+                string query = @"select FormName, FormTitle from UserFavoriteForms where UserId = " + userId.ToString();
+                DataSet ds = fun.fillComboDataset(query);
+                return ds;
+            }
+            catch (Exception ex)
+            {                
                 throw ex;
             }
         }

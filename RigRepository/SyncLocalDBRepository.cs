@@ -222,5 +222,75 @@ namespace RigRepository
             }
             return true;
         }
+        public bool SyncLocation()
+        {
+            try
+            {
+                string query = @"SELECT name FROM sqlite_master WHERE type='table' AND name='Location';";
+                DataSet ds = temp.fillComboDataset(query);
+                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                {
+                    query = @"CREATE TABLE Location(
+	                [LocId] [int] NOT NULL,
+	                [LocCode] [varchar](50) NOT NULL,
+	                [LocName] [varchar](500) NOT NULL,
+	                [LocLatitude] [varchar](500) NOT NULL,
+	                [LocLongitude] [varchar](500) NOT NULL,
+	                [LocRemarks] [varchar](5000) NULL)";
+                    temp.ExecuteQuery(query);
+                }
+
+                fun.OpenConnection();
+                if (fun.getConnection().State == ConnectionState.Open)
+                {
+                    query = @"select LocId
+                                ,LocCode
+                                ,LocName
+                                ,LocLatitude
+                                ,LocLongitude
+                                ,LocRemarks
+                                FROM Location";
+                    ds = fun.fillComboDataset(query);
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        query = "Delete from Location";
+                        temp.ExecuteQuery(query);
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            query = @"INSERT INTO Location(
+                                 LocId
+                                ,LocCode
+                                ,LocName
+                                ,LocLatitude
+                                ,LocLongitude
+                                ,LocRemarks)
+                                VALUES(
+                                 @LocId
+                                ,@LocCode
+                                ,@LocName
+                                ,@LocLatitude
+                                ,@LocLongitude
+                                ,@LocRemarks)
+                                ";
+
+                            List<SQLiteParameter> param = new List<SQLiteParameter>();
+                            param.Add(new SQLiteParameter("@LocId", dr["LocId"]));
+                            param.Add(new SQLiteParameter("@LocCode", dr["LocCode"]));
+                            param.Add(new SQLiteParameter("@LocName", dr["LocName"]));
+                            param.Add(new SQLiteParameter("@LocLatitude", dr["LocLatitude"]));
+                            param.Add(new SQLiteParameter("@LocLongitude", dr["LocLongitude"]));
+                            param.Add(new SQLiteParameter("@LocRemarks", dr["LocRemarks"]));
+
+                            temp.ExecuteQuery(query, param);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
     }
 }

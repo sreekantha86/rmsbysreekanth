@@ -63,6 +63,7 @@
     <Compile Include="DBConnectionRepository.cs" />
     <Compile Include="DBFunctionRepository.cs" />
     <Compile Include="IManageDB.cs" />
+    <Compile Include="LocationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnectionRepository.cs" />
     <Compile Include="SQLiteFunctionRepository.cs" />

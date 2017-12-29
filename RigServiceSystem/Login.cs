@@ -64,6 +64,7 @@ namespace RigServiceSystem
                 //Program.FinancialYearName = lstFinancialYear.Text;
                 this.Hide();
                 HomePage page = new HomePage();
+                //var page = (Form)Activator.CreateInstance(Type.GetType("RigServiceSystem.HomePage"));
                 page.Show();
             }
             else

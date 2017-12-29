@@ -259,6 +259,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyFavorites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyFavorites.Designer.cs">
+      <DependentUpon>MyFavorites.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,6 +552,7 @@
     <None Include="Resources\RigMainPage2.JPG" />
     <None Include="Resources\RigLogin1.JPG" />
     <None Include="Resources\vendors.png" />
+    <None Include="Resources\pin.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

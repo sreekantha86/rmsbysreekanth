@@ -121,17 +121,23 @@
   <data name="loginPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginPage.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="homepage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\homepage.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Well" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Well.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tickets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tickets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vendors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vendors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="financialyear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\financialyear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AssignTask" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AssignTask.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spares" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spares.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,9 +205,6 @@
   <data name="loginPage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginPage1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="equipment_group" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\equipment_group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,8 +229,8 @@
   <data name="workbench" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\workbench.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="equipment_group" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\equipment_group.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RigLogin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RigLogin1.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,13 +238,13 @@
   <data name="report_generation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_generation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tickets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tickets.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="homepage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\homepage.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Taskcompletion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Taskcompletion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vendors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vendors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

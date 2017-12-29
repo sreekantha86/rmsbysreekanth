@@ -1,4 +1,6 @@
-﻿using RigRepository;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using RigRepository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,9 +118,8 @@ namespace RigServiceSystem
         {
             this.Text = this.Text + " - " + Program.FinancialYearName;
             toolStripStatusLabel.Text = "User - " + Program.UserName;
-            SyncLocalDB.RunWorkerAsync();
+            SyncLocalDB.RunWorkerAsync();            
         }
-
         private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
         {
             for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
@@ -361,7 +362,10 @@ namespace RigServiceSystem
                     repo.SyncCountry();
                     repo.SyncVendorType();
                     repo.SyncVendorMaster();
-                    Thread.Sleep(1000);     
+                    repo.SyncLocation();
+                    DataSet ds = GetFavorites();
+                    Thread.Sleep(1000);
+                    SyncLocalDB.ReportProgress(0, ds);
                 }
                 e.Cancel = true;
                 //SyncLocalDBRepository repo = new SyncLocalDBRepository();
@@ -376,6 +380,12 @@ namespace RigServiceSystem
                 MessageBox.Show("Syncing of Local DB failed. Error:" + ex.Message);
             }
         }
+        private DataSet GetFavorites()
+        {
+            UserRepository user = new UserRepository();
+            DataSet ds = user.FillFavorites(Program.UserId);
+            return ds;
+        }
 
         private void SyncLocalDB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -384,7 +394,37 @@ namespace RigServiceSystem
 
         private void SyncLocalDB_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            if (!SyncLocalDB.CancellationPending)
+            {
+                DataSet ds = (DataSet)e.UserState;
+                gridFavorites.DataSource = ds.Tables[0];
+            }
+        }
 
+        private void gridFavorites_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            GridView view = (GridView)sender;
+            Point pt = view.GridControl.PointToClient(Control.MousePosition);
+            GridHitInfo info = view.CalcHitInfo(pt);
+            if (info.InRow || info.InRowCell)
+            {
+                string form = view.GetRowCellValue(info.RowHandle, "FormName").ToString();
+                var page = (Form)Activator.CreateInstance(Type.GetType("RigServiceSystem." + form));
+                page.Show();
+            }
+        }
+
+        private void cmdRigLocationMap_Click(object sender, EventArgs e)
+        {
+            LocationList loc = new LocationList();
+            loc.MdiParent = this;
+            loc.StartPosition = FormStartPosition.CenterScreen;
+            loc.Show();
         }
     }
 }
