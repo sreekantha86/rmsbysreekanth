@@ -32,33 +32,33 @@
             this.cmdCancel = new DevExpress.XtraEditors.PictureEdit();
             this.cmdSave = new DevExpress.XtraEditors.PictureEdit();
             this.lstLocation = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtUserName = new DevExpress.XtraEditors.TextEdit();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.txtRemarks = new DevExpress.XtraEditors.MemoEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.lstRigType = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtManufacturer = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProject = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.txtModelNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstLocation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstRigType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -91,6 +91,7 @@
             this.cmdSave.Properties.Appearance.Options.UseBackColor = true;
             this.cmdSave.Size = new System.Drawing.Size(28, 29);
             this.cmdSave.TabIndex = 0;
+            this.cmdSave.EditValueChanged += new System.EventHandler(this.cmdSave_EditValueChanged);
             // 
             // lstLocation
             // 
@@ -100,14 +101,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lstLocation.Properties.NullText = "";
             this.lstLocation.Size = new System.Drawing.Size(155, 20);
-            this.lstLocation.TabIndex = 17;
+            this.lstLocation.TabIndex = 4;
             // 
-            // txtUserName
+            // txtCode
             // 
-            this.txtUserName.Location = new System.Drawing.Point(104, 52);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(155, 20);
-            this.txtUserName.TabIndex = 15;
+            this.txtCode.Location = new System.Drawing.Point(104, 52);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(155, 20);
+            this.txtCode.TabIndex = 0;
             // 
             // labelControl1
             // 
@@ -125,12 +126,12 @@
             this.labelControl2.TabIndex = 18;
             this.labelControl2.Text = "Rig Name";
             // 
-            // textEdit1
+            // txtName
             // 
-            this.textEdit1.Location = new System.Drawing.Point(104, 82);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(260, 20);
-            this.textEdit1.TabIndex = 19;
+            this.txtName.Location = new System.Drawing.Point(104, 82);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(260, 20);
+            this.txtName.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -148,12 +149,12 @@
             this.labelControl4.TabIndex = 21;
             this.labelControl4.Text = "Remarks";
             // 
-            // memoEdit1
+            // txtRemarks
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(104, 264);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(371, 62);
-            this.memoEdit1.TabIndex = 22;
+            this.txtRemarks.Location = new System.Drawing.Point(104, 264);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(371, 62);
+            this.txtRemarks.TabIndex = 7;
             // 
             // labelControl5
             // 
@@ -163,22 +164,22 @@
             this.labelControl5.TabIndex = 24;
             this.labelControl5.Text = "Rig Type";
             // 
-            // lookUpEdit1
+            // lstRigType
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(104, 202);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lstRigType.Location = new System.Drawing.Point(104, 202);
+            this.lstRigType.Name = "lstRigType";
+            this.lstRigType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Size = new System.Drawing.Size(155, 20);
-            this.lookUpEdit1.TabIndex = 23;
+            this.lstRigType.Properties.NullText = "";
+            this.lstRigType.Size = new System.Drawing.Size(155, 20);
+            this.lstRigType.TabIndex = 5;
             // 
-            // textEdit2
+            // txtManufacturer
             // 
-            this.textEdit2.Location = new System.Drawing.Point(104, 112);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(155, 20);
-            this.textEdit2.TabIndex = 25;
+            this.txtManufacturer.Location = new System.Drawing.Point(104, 112);
+            this.txtManufacturer.Name = "txtManufacturer";
+            this.txtManufacturer.Size = new System.Drawing.Size(155, 20);
+            this.txtManufacturer.TabIndex = 2;
             // 
             // labelControl6
             // 
@@ -188,12 +189,12 @@
             this.labelControl6.TabIndex = 26;
             this.labelControl6.Text = "Rig Manufaturer";
             // 
-            // textEdit3
+            // txtProject
             // 
-            this.textEdit3.Location = new System.Drawing.Point(104, 142);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(155, 20);
-            this.textEdit3.TabIndex = 27;
+            this.txtProject.Location = new System.Drawing.Point(104, 142);
+            this.txtProject.Name = "txtProject";
+            this.txtProject.Size = new System.Drawing.Size(155, 20);
+            this.txtProject.TabIndex = 3;
             // 
             // labelControl7
             // 
@@ -203,12 +204,12 @@
             this.labelControl7.TabIndex = 28;
             this.labelControl7.Text = "Rig Project";
             // 
-            // textEdit4
+            // txtModelNo
             // 
-            this.textEdit4.Location = new System.Drawing.Point(104, 232);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(155, 20);
-            this.textEdit4.TabIndex = 29;
+            this.txtModelNo.Location = new System.Drawing.Point(104, 232);
+            this.txtModelNo.Name = "txtModelNo";
+            this.txtModelNo.Size = new System.Drawing.Size(155, 20);
+            this.txtModelNo.TabIndex = 6;
             // 
             // labelControl8
             // 
@@ -224,21 +225,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(547, 342);
-            this.Controls.Add(this.textEdit4);
+            this.Controls.Add(this.txtModelNo);
             this.Controls.Add(this.labelControl8);
-            this.Controls.Add(this.textEdit3);
+            this.Controls.Add(this.txtProject);
             this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.textEdit2);
+            this.Controls.Add(this.txtManufacturer);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.lookUpEdit1);
-            this.Controls.Add(this.memoEdit1);
+            this.Controls.Add(this.lstRigType);
+            this.Controls.Add(this.txtRemarks);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lstLocation);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -248,18 +249,19 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rig";
+            this.Load += new System.EventHandler(this.Rig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstLocation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemarks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstRigType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,20 +273,20 @@
         private DevExpress.XtraEditors.PictureEdit cmdCancel;
         private DevExpress.XtraEditors.PictureEdit cmdSave;
         private DevExpress.XtraEditors.LookUpEdit lstLocation;
-        private DevExpress.XtraEditors.TextEdit txtUserName;
+        private DevExpress.XtraEditors.TextEdit txtCode;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.MemoEdit txtRemarks;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LookUpEdit lstRigType;
+        private DevExpress.XtraEditors.TextEdit txtManufacturer;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit txtProject;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtModelNo;
         private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }

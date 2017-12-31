@@ -90,7 +90,7 @@ namespace RigRepository
                 DataSet ds = temp.fillComboDataset(query);
                 if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
                 {
-                    query = @"CREATE TABLE [dbo].[Vendor](
+                    query = @"CREATE TABLE [Vendor](
 	                [VendorId] [int] NOT NULL,
 	                [VendorCode] [varchar](50) NULL,
 	                [VendorName] [varchar](50) NOT NULL,
@@ -138,7 +138,7 @@ namespace RigRepository
                             ,[CrNoExpiry]
                             ,[GosiNoExpiry]
                             ,[ZakaatExpiry]
-                        FROM [dbo].[Vendor]";
+                        FROM [Vendor]";
                     ds = fun.fillComboDataset(query);
                     if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
@@ -282,6 +282,47 @@ namespace RigRepository
                             param.Add(new SQLiteParameter("@LocRemarks", dr["LocRemarks"]));
 
                             temp.ExecuteQuery(query, param);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
+        public bool SyncRigType()
+        {
+            try
+            {
+                string query = @"SELECT name FROM sqlite_master WHERE type='table' AND name='RigType';";
+                DataSet ds = temp.fillComboDataset(query);
+                if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+                {
+                    query = @"CREATE TABLE [RigType](
+	                [RigTypeId] [int] NOT NULL,
+	                [RigTypeName] [varchar](50) NOT NULL)";
+                    temp.ExecuteQuery(query);
+                }
+                fun.OpenConnection();
+                if (fun.getConnection().State == ConnectionState.Open)
+                {
+                    query = @"select RigTypeId, RigTypeName from RigType";
+                    ds = fun.fillComboDataset(query);
+                    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        query = "Delete from RigType";
+                        temp.ExecuteQuery(query);
+                        foreach (DataRow dr in ds.Tables[0].Rows)
+                        {
+                            query = @"INSERT INTO RigType(RigTypeId, RigTypeName)
+                            VALUES(@RigTypeId, @RigTypeName)";
+
+                            List<SQLiteParameter> param = new List<SQLiteParameter>();
+                            param.Add(new SQLiteParameter("@RigTypeId", dr["RigTypeId"]));
+                            param.Add(new SQLiteParameter("@RigTypeName", dr["@RigTypeName"]));
+                            temp.ExecuteQuery(query);
                         }
                     }
                 }

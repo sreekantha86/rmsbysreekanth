@@ -114,6 +114,7 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Rig Code";
+            this.gridColumn1.FieldName = "RigCode";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
@@ -121,6 +122,7 @@
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Rig Name";
+            this.gridColumn2.FieldName = "RigName";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
@@ -128,6 +130,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Location";
+            this.gridColumn3.FieldName = "locName";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
@@ -146,6 +149,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rigs";
+            this.Load += new System.EventHandler(this.RigList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();

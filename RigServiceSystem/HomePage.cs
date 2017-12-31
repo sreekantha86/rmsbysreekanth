@@ -363,6 +363,7 @@ namespace RigServiceSystem
                     repo.SyncVendorType();
                     repo.SyncVendorMaster();
                     repo.SyncLocation();
+                    repo.SyncRigType();
                     DataSet ds = GetFavorites();
                     Thread.Sleep(1000);
                     SyncLocalDB.ReportProgress(0, ds);

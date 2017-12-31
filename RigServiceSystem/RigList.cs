@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RigRepository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace RigServiceSystem
 {
     public partial class RigList : Form
     {
+        RigMasterRepository repo = new RigMasterRepository();
         public RigList()
         {
             InitializeComponent();
@@ -20,6 +22,24 @@ namespace RigServiceSystem
         {
             Rig newRig = new Rig();
             newRig.ShowDialog(this);
+            FillGrid();
+        }
+
+        private void RigList_Load(object sender, EventArgs e)
+        {
+            FillGrid();
+        }
+        private void FillGrid()
+        {
+            try
+            {
+                DataSet ds = repo.GetRigList();
+                gridControl1.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            }
         }
     }
 }
