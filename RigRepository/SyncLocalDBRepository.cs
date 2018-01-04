@@ -321,8 +321,8 @@ namespace RigRepository
 
                             List<SQLiteParameter> param = new List<SQLiteParameter>();
                             param.Add(new SQLiteParameter("@RigTypeId", dr["RigTypeId"]));
-                            param.Add(new SQLiteParameter("@RigTypeName", dr["@RigTypeName"]));
-                            temp.ExecuteQuery(query);
+                            param.Add(new SQLiteParameter("@RigTypeName", dr["RigTypeName"]));
+                            temp.ExecuteQuery(query,param);
                         }
                     }
                 }

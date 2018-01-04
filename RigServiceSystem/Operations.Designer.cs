@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lstRig = new DevExpress.XtraEditors.LookUpEdit();
             this.cmdNewWell = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -54,7 +54,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstRig.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
@@ -78,22 +78,22 @@
             this.labelControl5.TabIndex = 26;
             this.labelControl5.Text = "Select Rig";
             // 
-            // lookUpEdit1
+            // lstRig
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(117, 12);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lstRig.Location = new System.Drawing.Point(117, 12);
+            this.lstRig.Name = "lstRig";
+            this.lstRig.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Size = new System.Drawing.Size(285, 20);
-            this.lookUpEdit1.TabIndex = 25;
+            this.lstRig.Properties.NullText = "";
+            this.lstRig.Size = new System.Drawing.Size(285, 20);
+            this.lstRig.TabIndex = 25;
             // 
             // cmdNewWell
             // 
             this.cmdNewWell.Image = global::RigServiceSystem.Properties.Resources.Well;
-            this.cmdNewWell.Location = new System.Drawing.Point(419, 6);
+            this.cmdNewWell.Location = new System.Drawing.Point(420, 6);
             this.cmdNewWell.Name = "cmdNewWell";
-            this.cmdNewWell.Size = new System.Drawing.Size(90, 31);
+            this.cmdNewWell.Size = new System.Drawing.Size(110, 31);
             this.cmdNewWell.TabIndex = 46;
             this.cmdNewWell.Text = "New Well";
             this.cmdNewWell.Click += new System.EventHandler(this.cmdNewWell_Click);
@@ -308,14 +308,15 @@
             this.Controls.Add(this.cmdNewWell);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.lookUpEdit1);
+            this.Controls.Add(this.lstRig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Operations";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Operations";
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            this.Load += new System.EventHandler(this.Operations_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.lstRig.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -337,7 +338,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit lstRig;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.TextEdit textEdit9;
         private DevExpress.XtraEditors.LabelControl labelControl10;

@@ -29,8 +29,8 @@ namespace RigServiceSystem
             {
                 DataSet dsLoc = repo.fillLocation();
                 lstLocation.Properties.DataSource = dsLoc.Tables[0];
-                lstLocation.Properties.DisplayMember = "LocId";
-                lstLocation.Properties.ValueMember = "LocName";
+                lstLocation.Properties.DisplayMember = "LocName";
+                lstLocation.Properties.ValueMember = "LocId";
                 lstLocation.Properties.NullText = "";
                 lstLocation.Properties.PopulateColumns();
                 lstLocation.Properties.Columns["LocId"].Visible = false;
@@ -38,8 +38,8 @@ namespace RigServiceSystem
 
                 DataSet dsRigType = repo.fillRigType();
                 lstRigType.Properties.DataSource = dsRigType.Tables[0];
-                lstRigType.Properties.DisplayMember = "RigTypeId";
-                lstRigType.Properties.ValueMember = "RigTypeName";
+                lstRigType.Properties.DisplayMember = "RigTypeName";
+                lstRigType.Properties.ValueMember = "RigTypeId";
                 lstRigType.Properties.NullText = "";
                 lstRigType.Properties.PopulateColumns();
                 lstRigType.Properties.Columns["RigTypeId"].Visible = false;
@@ -78,6 +78,7 @@ namespace RigServiceSystem
                 model.RigProject = txtProject.Text;
                 model.RigRemarks = txtRemarks.Text;
                 model.RigTypeId = Convert.ToInt32(lstRigType.Properties.GetKeyValueByDisplayValue(lstRigType.Text));
+                model.RigDeployed = txtDateOfDeploy.DateTime;
                 model = repo.Insert(model);
                 if(model.RigId > 0)
                 {
@@ -142,7 +143,31 @@ namespace RigServiceSystem
                 lstRigType.Focus();
                 return false;
             }
+            if(txtDateOfDeploy.Text == "")
+            {
+                MessageBox.Show("Please select date of Diploy");
+                txtDateOfDeploy.Focus();
+                return false;
+            }
             return true;
+        }
+
+        private void cmdSave_Click(object sender, EventArgs e)
+        {
+            if(Validate())
+            {
+                if(MessageBox.Show("Do you want to save?","", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    if(RigId == 0)
+                    {
+                        Insert();
+                    }
+                    else
+                    {
+                        Update();
+                    }
+                }
+            }
         }
     }
 }

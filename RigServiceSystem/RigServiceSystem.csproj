@@ -265,11 +265,29 @@
     <Compile Include="MyFavorites.Designer.cs">
       <DependentUpon>MyFavorites.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperationalDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationalDetails.Designer.cs">
+      <DependentUpon>OperationalDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operations.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Operations.Designer.cs">
       <DependentUpon>Operations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationsCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationsCategory.Designer.cs">
+      <DependentUpon>OperationsCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationsCategoryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationsCategoryList.Designer.cs">
+      <DependentUpon>OperationsCategoryList.cs</DependentUpon>
     </Compile>
     <Compile Include="OperationsUpdate.cs">
       <SubType>Form</SubType>
@@ -338,6 +356,12 @@
     </Compile>
     <Compile Include="Well.Designer.cs">
       <DependentUpon>Well.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WellList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WellList.Designer.cs">
+      <DependentUpon>WellList.cs</DependentUpon>
     </Compile>
     <Compile Include="Workbench.cs">
       <SubType>Form</SubType>
@@ -430,8 +454,17 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OperationalDetails.resx">
+      <DependentUpon>OperationalDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operations.resx">
       <DependentUpon>Operations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationsCategory.resx">
+      <DependentUpon>OperationsCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationsCategoryList.resx">
+      <DependentUpon>OperationsCategoryList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationsUpdate.resx">
       <DependentUpon>OperationsUpdate.cs</DependentUpon>
@@ -476,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Well.resx">
       <DependentUpon>Well.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WellList.resx">
+      <DependentUpon>WellList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workbench.resx">
       <DependentUpon>Workbench.cs</DependentUpon>
@@ -553,6 +589,13 @@
     <None Include="Resources\RigLogin1.JPG" />
     <None Include="Resources\vendors.png" />
     <None Include="Resources\pin.png" />
+    <None Include="Resources\operationsCategory.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\billing.png" />
+    <None Include="Resources\sectional.png" />
+    <None Include="Resources\wellType.png" />
+    <None Include="Resources\operational.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -427,5 +427,21 @@ namespace RigServiceSystem
             loc.StartPosition = FormStartPosition.CenterScreen;
             loc.Show();
         }
+
+        private void cmdOperationsCategory_Click(object sender, EventArgs e)
+        {
+            OperationsCategoryList obj = new OperationsCategoryList();
+            obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.Show();
+        }
+
+        private void Operationals_Click(object sender, EventArgs e)
+        {
+            OperationalDetails obj = new OperationalDetails();
+            obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.Show();
+        }
     }
 }

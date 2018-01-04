@@ -65,6 +65,8 @@ namespace RigRepository
                                 ,RigTypeId
                                 ,RigModelNo
                                 ,RigRemarks
+                                ,RigDeployed)
+                                output INSERTED.RigId
                                 VALUES(
                                  @RigCode
                                 ,@RigName
@@ -73,7 +75,8 @@ namespace RigRepository
                                 ,@LocId
                                 ,@RigTypeId
                                 ,@RigModelNo
-                                ,@RigRemarks)
+                                ,@RigRemarks
+                                ,@RigDeployed)
                                 ";
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@RigCode",model.RigCode));
@@ -84,7 +87,7 @@ namespace RigRepository
                 param.Add(new SqlParameter("@RigTypeId",model.RigTypeId));
                 param.Add(new SqlParameter("@RigModelNo",model.RigModelNo));
                 param.Add(new SqlParameter("@RigRemarks", model.RigRemarks));
-
+                param.Add(new SqlParameter("@RigDeployed", model.RigDeployed));
                 fun.OpenConnection();
                 if(fun.getConnection().State == ConnectionState.Open)
                 {
@@ -114,6 +117,7 @@ namespace RigRepository
                                 ,RigTypeId = @RigTypeId
                                 ,RigModelNo = @RigModelNo
                                 ,RigRemarks = @RigRemarks
+                                ,RigDeployed = @RigDeployed
                                 WHERE RigId = @RigId
                                 ";
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -126,6 +130,7 @@ namespace RigRepository
                 param.Add(new SqlParameter("@RigTypeId", model.RigTypeId));
                 param.Add(new SqlParameter("@RigModelNo", model.RigModelNo));
                 param.Add(new SqlParameter("@RigRemarks", model.RigRemarks));
+                param.Add(new SqlParameter("@RigDeployed", model.RigDeployed));
 
                 fun.OpenConnection();
                 if (fun.getConnection().State == ConnectionState.Open)
@@ -157,6 +162,7 @@ namespace RigRepository
                                 ,A.RigModelNo
                                 ,A.RigRemarks
                                 ,B.LocName
+                                ,A.RigDeployed
                                 FROM Rig A 
                                 INNER JOIN Location B on A.LocId = B.LocId";
 
@@ -179,6 +185,7 @@ namespace RigRepository
         public int RigTypeId {get;set;}
         public string RigModelNo {get;set;}
         public string RigRemarks {get;set;}
+        public DateTime? RigDeployed { get; set; }
 
     }
 }

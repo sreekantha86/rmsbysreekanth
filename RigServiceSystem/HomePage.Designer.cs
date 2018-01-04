@@ -74,6 +74,7 @@
             this.cmdRigReportGeneration = new System.Windows.Forms.RibbonButton();
             this.cmdRigLocationMap = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel11 = new System.Windows.Forms.RibbonPanel();
+            this.cmdOperationsCategory = new System.Windows.Forms.RibbonButton();
             this.cmdOperationSearch = new System.Windows.Forms.RibbonButton();
             this.ribbonTab11 = new System.Windows.Forms.RibbonTab();
             this.ribbonTab12 = new System.Windows.Forms.RibbonTab();
@@ -92,6 +93,8 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.FyId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FyName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ribbonPanel15 = new System.Windows.Forms.RibbonPanel();
+            this.Operationals = new System.Windows.Forms.RibbonButton();
             this.statusStrip.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).BeginInit();
@@ -222,6 +225,7 @@
             // 
             this.ribbonTab6.Panels.Add(this.ribbonPanel5);
             this.ribbonTab6.Panels.Add(this.ribbonPanel6);
+            this.ribbonTab6.Panels.Add(this.ribbonPanel15);
             this.ribbonTab6.Text = "Admin";
             // 
             // ribbonPanel5
@@ -352,8 +356,16 @@
             // 
             // ribbonPanel11
             // 
+            this.ribbonPanel11.Items.Add(this.cmdOperationsCategory);
             this.ribbonPanel11.Items.Add(this.cmdOperationSearch);
             this.ribbonPanel11.Text = "Operations";
+            // 
+            // cmdOperationsCategory
+            // 
+            this.cmdOperationsCategory.Image = global::RigServiceSystem.Properties.Resources.operationsCategory;
+            this.cmdOperationsCategory.SmallImage = ((System.Drawing.Image)(resources.GetObject("cmdOperationsCategory.SmallImage")));
+            this.cmdOperationsCategory.Text = "Operation Category";
+            this.cmdOperationsCategory.Click += new System.EventHandler(this.cmdOperationsCategory_Click);
             // 
             // cmdOperationSearch
             // 
@@ -500,6 +512,18 @@
             this.FyName.Visible = true;
             this.FyName.VisibleIndex = 0;
             // 
+            // ribbonPanel15
+            // 
+            this.ribbonPanel15.Items.Add(this.Operationals);
+            this.ribbonPanel15.Text = "Operationals";
+            // 
+            // Operationals
+            // 
+            this.Operationals.Image = global::RigServiceSystem.Properties.Resources.operational;
+            this.Operationals.SmallImage = ((System.Drawing.Image)(resources.GetObject("Operationals.SmallImage")));
+            this.Operationals.Text = "Add/Edit Operationals";
+            this.Operationals.Click += new System.EventHandler(this.Operationals_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,6 +616,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn FyId;
         private DevExpress.XtraGrid.Columns.GridColumn FyName;
+        private System.Windows.Forms.RibbonButton cmdOperationsCategory;
+        private System.Windows.Forms.RibbonPanel ribbonPanel15;
+        private System.Windows.Forms.RibbonButton Operationals;
     }
 }
 

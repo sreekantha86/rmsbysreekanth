@@ -64,6 +64,8 @@
     <Compile Include="DBFunctionRepository.cs" />
     <Compile Include="IManageDB.cs" />
     <Compile Include="LocationRepository.cs" />
+    <Compile Include="OperationalRepository.cs" />
+    <Compile Include="OperationsCategoryListRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RigRepository.cs" />
     <Compile Include="SQLiteConnectionRepository.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="SyncLocalDBRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="VendorRepository.cs" />
+    <Compile Include="WellRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

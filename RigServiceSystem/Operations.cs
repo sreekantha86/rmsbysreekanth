@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RigRepository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace RigServiceSystem
 {
     public partial class Operations : Form
     {
+        WellRepository well = new WellRepository();
         public Operations()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace RigServiceSystem
         private void cmdNewWell_Click(object sender, EventArgs e)
         {
             Well obj = new Well();
-            obj.ShowDialog();
+            obj.ShowDialog(this);
             obj.Dispose();
         }
 
@@ -43,6 +45,29 @@ namespace RigServiceSystem
         private void simpleButton2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Operations_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void FillRig()
+        {
+            try
+            {
+                DataSet dsRig = well.fillRig();
+                lstRig.Properties.DataSource = dsRig.Tables[0];
+                lstRig.Properties.DisplayMember = "RigName";
+                lstRig.Properties.ValueMember = "RigId";
+                lstRig.Properties.NullText = "";
+                lstRig.Properties.PopulateColumns();
+                lstRig.Properties.Columns["RigId"].Visible = false;
+                lstRig.Properties.ShowHeader = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException == null ? ex.Message : ex.InnerException.Message);
+            }
         }
     }
 }

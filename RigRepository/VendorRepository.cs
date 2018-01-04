@@ -393,7 +393,7 @@ namespace RigRepository
             }
             catch (Exception ex)
             {                
-                throw;
+                throw ex;
             }
         }
     }

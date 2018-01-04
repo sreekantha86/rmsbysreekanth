@@ -47,6 +47,8 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtModelNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDateOfDeploy = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
@@ -59,6 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -92,6 +96,7 @@
             this.cmdSave.Size = new System.Drawing.Size(28, 29);
             this.cmdSave.TabIndex = 0;
             this.cmdSave.EditValueChanged += new System.EventHandler(this.cmdSave_EditValueChanged);
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // lstLocation
             // 
@@ -154,7 +159,7 @@
             this.txtRemarks.Location = new System.Drawing.Point(104, 264);
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(371, 62);
-            this.txtRemarks.TabIndex = 7;
+            this.txtRemarks.TabIndex = 8;
             // 
             // labelControl5
             // 
@@ -219,12 +224,34 @@
             this.labelControl8.TabIndex = 30;
             this.labelControl8.Text = "Model No";
             // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(276, 235);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(96, 13);
+            this.labelControl9.TabIndex = 31;
+            this.labelControl9.Text = "Date of Deployment";
+            // 
+            // txtDateOfDeploy
+            // 
+            this.txtDateOfDeploy.EditValue = null;
+            this.txtDateOfDeploy.Location = new System.Drawing.Point(379, 232);
+            this.txtDateOfDeploy.Name = "txtDateOfDeploy";
+            this.txtDateOfDeploy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateOfDeploy.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateOfDeploy.Size = new System.Drawing.Size(96, 20);
+            this.txtDateOfDeploy.TabIndex = 7;
+            // 
             // Rig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(547, 342);
+            this.Controls.Add(this.txtDateOfDeploy);
+            this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.txtModelNo);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.txtProject);
@@ -262,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +317,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit txtModelNo;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.DateEdit txtDateOfDeploy;
     }
 }
