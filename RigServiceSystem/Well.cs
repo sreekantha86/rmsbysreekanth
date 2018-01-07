@@ -28,6 +28,10 @@ namespace RigServiceSystem
             {
                 ShowWell();
             }
+            else
+            {
+                ShowWellSections();
+            }            
         }
         private void ShowWell()
         {
@@ -41,8 +45,22 @@ namespace RigServiceSystem
                 lstLocation.EditValue = model.LocationId;
                 lstRig.EditValue = model.RigId;
                 lstWellType.EditValue = model.WellTypeId;
+                txtPlannedDays.Text = model.PlannedDays.ToString();
 
                 gridControl1.DataSource = model.DrillingPlanDoc;
+                gridControl2.DataSource = model.WellSections;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException == null ? ex.Message : ex.InnerException.Message);
+            }
+        }
+        private void ShowWellSections()
+        {
+            try
+            {
+                List<WellSectionModel> model = well.GetSectionDetails(WellId);
+                gridControl2.DataSource = model;
             }
             catch (Exception ex)
             {
@@ -116,22 +134,28 @@ namespace RigServiceSystem
         {
             try
             {
-                FileStream stream = File.OpenRead(openFileDialog1.FileName);
-                byte[] fileBytes = new byte[stream.Length];
-
-                stream.Read(fileBytes, 0, fileBytes.Length);
-                stream.Close();
-
                 WellModel model = new WellModel();
                 model.DrillingPlanDoc = new List<WellDrillingPlanModel>();
-                model.DrillingPlanDoc.Add(new WellDrillingPlanModel
+                try
                 {
-                    WellId = 0,
-                    WellDrillPlanId = 0,
-                    WellDrillDocExt = System.IO.Path.GetExtension(openFileDialog1.FileName.ToString()),
-                    WellDrillDoc = fileBytes,
-                    WellDrilDocName = lblFileName.Text
-                });
+                    FileStream stream = File.OpenRead(openFileDialog1.FileName);
+                    byte[] fileBytes = new byte[stream.Length];
+
+                    stream.Read(fileBytes, 0, fileBytes.Length);
+                    stream.Close();
+
+                    model.DrillingPlanDoc.Add(new WellDrillingPlanModel
+                    {
+                        WellId = WellId,
+                        WellDrillPlanId = 0,
+                        WellDrillDocExt = System.IO.Path.GetExtension(openFileDialog1.FileName.ToString()),
+                        WellDrillDoc = fileBytes,
+                        WellDrilDocName = lblFileName.Text
+                    });
+                }
+                catch (Exception)
+                {
+                }
                 model.LocationId = Convert.ToInt32(lstLocation.Properties.GetKeyValueByDisplayValue(lstLocation.Text));
                 model.WellCode = txtCode.Text;
                 model.WellDepth = Convert.ToDecimal(txtWellDepth.Text.Replace(",", ""));
@@ -140,6 +164,19 @@ namespace RigServiceSystem
                 model.WellPlannedDate = txtPlannedDate.DateTime;
                 model.WellTypeId = Convert.ToInt32(lstWellType.Properties.GetKeyValueByDisplayValue(lstWellType.Text));
                 model.RigId = Convert.ToInt32(lstRig.Properties.GetKeyValueByDisplayValue(lstRig.Text));
+
+                model.WellSections = new List<WellSectionModel>();
+                for (int i = 0; i < gridView2.RowCount; i++)
+                {
+                    model.WellSections.Add(new WellSectionModel()
+                    {
+                        SecDepth = Convert.ToDecimal(gridView2.GetRowCellValue(i, "SecDepth").ToString()),
+                        SecId = Convert.ToInt32(gridView2.GetRowCellValue(i, "SecId").ToString()),
+                        SectionName = gridView2.GetRowCellValue(i, "SectionName").ToString(),
+                        WellId = 0,
+                        WellSecId = Convert.ToInt32(gridView2.GetRowCellValue(i, "WellSecId").ToString())
+                    });
+                }
 
                 model = well.Insert(model);
 
@@ -157,23 +194,29 @@ namespace RigServiceSystem
         {
             try
             {
-                FileStream stream = File.OpenRead(openFileDialog1.FileName);
-                byte[] fileBytes = new byte[stream.Length];
-
-                stream.Read(fileBytes, 0, fileBytes.Length);
-                stream.Close();
-
                 WellModel model = new WellModel();
                 model.DrillingPlanDoc = new List<WellDrillingPlanModel>();
-
-                model.DrillingPlanDoc.Add(new WellDrillingPlanModel
+                try
                 {
-                    WellId = WellId,
-                    WellDrillPlanId = 0,
-                    WellDrillDocExt = System.IO.Path.GetExtension(openFileDialog1.FileName.ToString()),
-                    WellDrillDoc = fileBytes,
-                    WellDrilDocName = lblFileName.Text
-                });
+                    FileStream stream = File.OpenRead(openFileDialog1.FileName);
+                    byte[] fileBytes = new byte[stream.Length];
+
+                    stream.Read(fileBytes, 0, fileBytes.Length);
+                    stream.Close();
+
+                    model.DrillingPlanDoc.Add(new WellDrillingPlanModel
+                    {
+                        WellId = WellId,
+                        WellDrillPlanId = 0,
+                        WellDrillDocExt = System.IO.Path.GetExtension(openFileDialog1.FileName.ToString()),
+                        WellDrillDoc = fileBytes,
+                        WellDrilDocName = lblFileName.Text
+                    });
+                }
+                catch (Exception)
+                {
+                }
+                
                 model.LocationId = Convert.ToInt32(lstLocation.Properties.GetKeyValueByDisplayValue(lstLocation.Text));
                 model.WellCode = txtCode.Text;
                 model.WellDepth = Convert.ToDecimal(txtWellDepth.Text.Replace(",", ""));
@@ -182,6 +225,19 @@ namespace RigServiceSystem
                 model.WellPlannedDate = txtPlannedDate.DateTime;
                 model.WellTypeId = Convert.ToInt32(lstWellType.Properties.GetKeyValueByDisplayValue(lstWellType.Text));
                 model.RigId = Convert.ToInt32(lstRig.Properties.GetKeyValueByDisplayValue(lstRig.Text));
+
+                model.WellSections = new List<WellSectionModel>();
+                for (int i = 0; i < gridView2.RowCount; i++)
+                {
+                    model.WellSections.Add(new WellSectionModel()
+                    {
+                        SecDepth = Convert.ToDecimal(gridView2.GetRowCellValue(i, "SecDepth").ToString()),
+                        SecId = Convert.ToInt32(gridView2.GetRowCellValue(i, "SecId").ToString()),
+                        SectionName = gridView2.GetRowCellValue(i, "SectionName").ToString(),
+                        WellId = WellId,
+                        WellSecId = Convert.ToInt32(gridView2.GetRowCellValue(i, "WellSecId").ToString())
+                    });
+                }
 
                 model = well.Update(model);
 
@@ -221,6 +277,12 @@ namespace RigServiceSystem
                 lstLocation.Focus();
                 return false;
             }
+            if(txtPlannedDays.Text == "" || Convert.ToInt32(txtPlannedDays.Text) <= 0)
+            {
+                MessageBox.Show("Enter valid Planned Days.");
+                txtPlannedDays.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -234,6 +296,20 @@ namespace RigServiceSystem
         {
             WellList list = new WellList();
             list.ShowDialog();
+        }
+
+        private void lstLocation_TextChanged(object sender, EventArgs e)
+        {
+            if(lstLocation.Text != "")
+            {
+                int locId = Convert.ToInt32(lstLocation.Properties.GetKeyValueByDisplayValue(lstLocation.Text));
+                LocationModel loc = well.GetLocationDetails(locId);
+                if(loc != null)
+                {
+                    txtLatitude.Text = loc.LocLatitude;
+                    txtLongitude.Text = loc.LocLongitude;
+                }
+            }
         }
     }
 }

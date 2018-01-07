@@ -443,5 +443,21 @@ namespace RigServiceSystem
             obj.StartPosition = FormStartPosition.CenterScreen;
             obj.Show();
         }
+
+        private void ribbonButton10_Click(object sender, EventArgs e)
+        {
+            OperationsCategoryList obj = new OperationsCategoryList();
+            obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.Show();
+        }
+
+        private void cmdRigReportGeneration_Click(object sender, EventArgs e)
+        {
+            RigOperationsDailyReport obj = new RigOperationsDailyReport();
+            obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;
+            obj.Show();
+        }
     }
 }

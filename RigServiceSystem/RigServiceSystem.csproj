@@ -16,7 +16,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -120,100 +120,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bin\Debug\Reports\BuyerDetailSummaryReport.cs">
+    <Compile Include="bin\Debug\Reports\rptRigOperationDailyReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BuyerDetailSummaryReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\BuyerInvoiceScarf.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BuyerInvoiceScarf.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\ContainerDetails.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContainerDetails.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\ContainerDiscount.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContainerDiscount.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\CustomsInvoiceInSQMeter.cs">
-      <DependentUpon>CustomsInvoiceInSQMeter.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\CustomsInvoiceInSQMeterScarf.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomsInvoiceInSQMeterScarf.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\CustomsInvoiceInYards.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CustomsInvoiceInYards.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\MRNDebitNote.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MRNDebitNote.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\PackingListFabrics.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PackingListFabrics.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\rptConsignmentDetails.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptConsignmentDetails.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\rptMonthlyStockReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptMonthlyStockReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\RptNew.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RptNew.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\rptPackedCartonDetails.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptPackedCartonDetails.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\rptPackingListReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptPackingListReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\rptPackingListReportScarf.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptPackingListReportScarf.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bin\Debug\Reports\BuyerInvoice.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BuyerInvoice.rpt</DependentUpon>
+      <DependentUpon>rptRigOperationDailyReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Equipment.cs">
@@ -289,6 +199,12 @@
     <Compile Include="OperationsCategoryList.Designer.cs">
       <DependentUpon>OperationsCategoryList.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperationsEditList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationsEditList.Designer.cs">
+      <DependentUpon>OperationsEditList.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperationsUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,11 +231,29 @@
     <Compile Include="RigList.Designer.cs">
       <DependentUpon>RigList.cs</DependentUpon>
     </Compile>
+    <Compile Include="RigOperationDailyReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RigOperationDailyReportViewer.Designer.cs">
+      <DependentUpon>RigOperationDailyReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RigOperationsDailyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RigOperationsDailyReport.Designer.cs">
+      <DependentUpon>RigOperationsDailyReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunningSchedules.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RunningSchedules.Designer.cs">
       <DependentUpon>RunningSchedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOperations.Designer.cs">
+      <DependentUpon>UpdateOperations.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
@@ -369,69 +303,9 @@
     <Compile Include="Workbench.Designer.cs">
       <DependentUpon>Workbench.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="bin\Debug\Reports\BuyerDetailSummaryReport.rpt">
+    <EmbeddedResource Include="bin\Debug\Reports\rptRigOperationDailyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BuyerDetailSummaryReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\BuyerInvoiceScarf.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BuyerInvoiceScarf.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\ContainerDetails.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ContainerDetails.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\ContainerDiscount.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ContainerDiscount.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\CustomsInvoiceInSQMeter.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CustomsInvoiceInSQMeter.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\CustomsInvoiceInSQMeterScarf.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CustomsInvoiceInSQMeterScarf.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\CustomsInvoiceInYards.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CustomsInvoiceInYards.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\MRNDebitNote.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>MRNDebitNote.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\PackingListFabrics.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PackingListFabrics.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\rptConsignmentDetails.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptConsignmentDetails.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\rptMonthlyStockReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptMonthlyStockReport1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\RptNew.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RptNew.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\rptPackedCartonDetails.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptPackedCartonDetails.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\rptPackingListReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptPackingListReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\rptPackingListReportScarf.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptPackingListReportScarf.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bin\Debug\Reports\BuyerInvoice.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BuyerInvoice.cs</LastGenOutput>
+      <LastGenOutput>rptRigOperationDailyReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipment.resx">
       <DependentUpon>Equipment.cs</DependentUpon>
@@ -466,6 +340,9 @@
     <EmbeddedResource Include="OperationsCategoryList.resx">
       <DependentUpon>OperationsCategoryList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OperationsEditList.resx">
+      <DependentUpon>OperationsEditList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OperationsUpdate.resx">
       <DependentUpon>OperationsUpdate.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,8 +366,17 @@
     <EmbeddedResource Include="RigList.resx">
       <DependentUpon>RigList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RigOperationDailyReportViewer.resx">
+      <DependentUpon>RigOperationDailyReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RigOperationsDailyReport.resx">
+      <DependentUpon>RigOperationsDailyReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RunningSchedules.resx">
       <DependentUpon>RunningSchedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateOperations.resx">
+      <DependentUpon>UpdateOperations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
@@ -549,8 +435,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Reports\rptPackedCartonDetails.vb" />
-    <Content Include="bin\Debug\Reports\rptPackingListReport.vb" />
     <None Include="Resources\UserRole.png" />
     <None Include="Resources\users-group.png" />
     <None Include="Resources\user.png" />
@@ -596,6 +480,7 @@
     <None Include="Resources\sectional.png" />
     <None Include="Resources\wellType.png" />
     <None Include="Resources\operational.png" />
+    <None Include="Resources\print.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

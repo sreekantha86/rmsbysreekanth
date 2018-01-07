@@ -12,6 +12,105 @@ namespace RigRepository
         DBFunctionRepository fun = new DBFunctionRepository();
         SQLiteFunctionRepository temp = new SQLiteFunctionRepository();
 
+        public DataSet GetBillingDetails()
+        {
+            try
+            {
+                string query = @"SELECT ROW_NUMBER()OVER(ORDER BY BillingId)SlNo
+	                              ,[BillingId]
+                                  ,[BillingClass]
+                                  ,[BillingDescription]
+                                  ,[BillingDayPerc]
+                                  ,[BillingDay]
+                              FROM [dbo].[BillingDetails]";
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    return fun.fillComboDataset(query);
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<BillingDetails> UpdateBillingDetails(List<BillingDetails> model)
+        {
+            try
+            {
+                foreach (var item in model)
+                {
+                    if (item.BillingClass != "")
+                    {
+                        if (item.BillingId == 0)
+                        {
+                            string query = @"INSERT INTO BillingDetails(
+                                BillingClass
+                                ,BillingDescription
+                                ,BillingDayPerc
+                                ,BillingDay)
+                                output INSERTED.BillingId
+                                VALUES(
+                                @BillingClass
+                                ,@BillingDescription
+                                ,@BillingDayPerc
+                                ,@BillingDay)
+                                ";
+                            List<SqlParameter> param = new List<SqlParameter>();
+                            param.Add(new SqlParameter("@BillingClass", item.BillingClass));
+                            param.Add(new SqlParameter("@BillingDescription", item.BillingDescription));
+                            param.Add(new SqlParameter("@BillingDayPerc", item.BillingDayPerc));
+                            param.Add(new SqlParameter("@BillingDay", item.BillingDay));
+
+                            fun.OpenConnection();
+                            if (fun.getConnection().State == System.Data.ConnectionState.Open)
+                            {
+                                item.BillingId = fun.ExecuteQueryWithParameters(query, param, "Yes");
+                            }
+                            else
+                            {
+                                throw new Exception("Please check network connection");
+                            }
+                        }
+                        else
+                        {
+                            string query = @"UPDATE BillingDetails SET
+                                BillingClass = @BillingClass
+                                ,BillingDescription = @BillingDescription
+                                ,BillingDayPerc = @BillingDayPerc
+                                ,BillingDay = @BillingDay
+                                WHERE BillingId = @BillingId";
+
+                            List<SqlParameter> param = new List<SqlParameter>();
+                            param.Add(new SqlParameter("@BillingId", item.BillingId));
+                            param.Add(new SqlParameter("@BillingClass", item.BillingClass));
+                            param.Add(new SqlParameter("@BillingDescription", item.BillingDescription));
+                            param.Add(new SqlParameter("@BillingDayPerc", item.BillingDayPerc));
+                            param.Add(new SqlParameter("@BillingDay", item.BillingDay));
+
+                            fun.OpenConnection();
+                            if (fun.getConnection().State == System.Data.ConnectionState.Open)
+                            {
+                                fun.ExecuteQueryWithParameters(query, param);
+                            }
+                            else
+                            {
+                                throw new Exception("Please check network connection");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return model;
+        }
         public DataSet GetSectionalDetails()
         {
             try
@@ -184,6 +283,15 @@ namespace RigRepository
             }
             return model;
         }
+    }
+    public class BillingDetails
+    {
+        public int BillingId {get;set;}
+        public string BillingClass {get;set;}
+        public string BillingDescription {get;set;}
+        public int BillingDayPerc {get;set;}
+        public int BillingDay { get; set; }
+
     }
     public class SectionalDetails
     {

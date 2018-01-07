@@ -40,7 +40,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Billing = new DevExpress.XtraTab.XtraTabPage();
-            this.txtFYName = new DevExpress.XtraEditors.TextEdit();
+            this.txtBillingDay = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -63,6 +63,7 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDayPerc = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
@@ -73,7 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.Billing.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFYName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillingDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SectionalDetails.SuspendLayout();
@@ -82,6 +83,7 @@
             this.WellType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -194,7 +196,7 @@
             // 
             // Billing
             // 
-            this.Billing.Controls.Add(this.txtFYName);
+            this.Billing.Controls.Add(this.txtBillingDay);
             this.Billing.Controls.Add(this.labelControl1);
             this.Billing.Controls.Add(this.gridControl2);
             this.Billing.Image = global::RigServiceSystem.Properties.Resources.billing;
@@ -202,13 +204,13 @@
             this.Billing.Size = new System.Drawing.Size(696, 354);
             this.Billing.Text = "Billing";
             // 
-            // txtFYName
+            // txtBillingDay
             // 
-            this.txtFYName.Location = new System.Drawing.Point(97, 15);
-            this.txtFYName.Name = "txtFYName";
-            this.txtFYName.Properties.MaxLength = 50;
-            this.txtFYName.Size = new System.Drawing.Size(81, 20);
-            this.txtFYName.TabIndex = 11;
+            this.txtBillingDay.Location = new System.Drawing.Point(97, 15);
+            this.txtBillingDay.Name = "txtBillingDay";
+            this.txtBillingDay.Properties.MaxLength = 50;
+            this.txtBillingDay.Size = new System.Drawing.Size(81, 20);
+            this.txtBillingDay.TabIndex = 11;
             // 
             // labelControl1
             // 
@@ -223,6 +225,8 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 50);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.txtDayPerc});
             this.gridControl2.Size = new System.Drawing.Size(690, 301);
             this.gridControl2.TabIndex = 1;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -255,6 +259,7 @@
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 0;
+            this.gridColumn6.Width = 53;
             // 
             // gridColumn7
             // 
@@ -263,6 +268,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 1;
+            this.gridColumn7.Width = 186;
             // 
             // gridColumn8
             // 
@@ -271,14 +277,17 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 2;
+            this.gridColumn8.Width = 657;
             // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "% Of Day";
+            this.gridColumn9.ColumnEdit = this.txtDayPerc;
             this.gridColumn9.FieldName = "BillingDayPerc";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 3;
+            this.gridColumn9.Width = 182;
             // 
             // SectionalDetails
             // 
@@ -408,6 +417,13 @@
             this.gridColumn17.VisibleIndex = 2;
             this.gridColumn17.Width = 747;
             // 
+            // txtDayPerc
+            // 
+            this.txtDayPerc.AutoHeight = false;
+            this.txtDayPerc.Mask.EditMask = "P0";
+            this.txtDayPerc.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDayPerc.Name = "txtDayPerc";
+            // 
             // OperationalDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,7 +451,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.Billing.ResumeLayout(false);
             this.Billing.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFYName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillingDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.SectionalDetails.ResumeLayout(false);
@@ -444,6 +460,7 @@
             this.WellType.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -471,7 +488,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.TextEdit txtFYName;
+        private DevExpress.XtraEditors.TextEdit txtBillingDay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
@@ -485,6 +502,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtDayPerc;
 
     }
 }
