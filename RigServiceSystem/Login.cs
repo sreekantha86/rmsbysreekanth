@@ -138,5 +138,22 @@ namespace RigServiceSystem
                 return false;
             }
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(Convert.ToInt32(e.KeyChar) == 13)
+            {
+                if(txtPassword.Text == "")
+                {
+                    MessageBox.Show("Please enter password");
+                    txtPassword.Focus();
+                    return;
+                }
+                else
+                {
+                    btnLogin_Click(sender, e);
+                }
+            }
+        }
     }
 }

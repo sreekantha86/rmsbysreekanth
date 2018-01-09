@@ -38,14 +38,14 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdEdit = new DevExpress.XtraEditors.PictureEdit();
             this.cmdNew = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +132,7 @@
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Controls.Add(this.pictureEdit3);
-            this.panelControl1.Controls.Add(this.pictureEdit2);
+            this.panelControl1.Controls.Add(this.cmdEdit);
             this.panelControl1.Controls.Add(this.cmdNew);
             this.panelControl1.Location = new System.Drawing.Point(1, 2);
             this.panelControl1.Name = "panelControl1";
@@ -149,15 +149,16 @@
             this.pictureEdit3.Size = new System.Drawing.Size(28, 29);
             this.pictureEdit3.TabIndex = 2;
             // 
-            // pictureEdit2
+            // cmdEdit
             // 
-            this.pictureEdit2.EditValue = global::RigServiceSystem.Properties.Resources.edit;
-            this.pictureEdit2.Location = new System.Drawing.Point(38, 3);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit2.Size = new System.Drawing.Size(28, 29);
-            this.pictureEdit2.TabIndex = 1;
+            this.cmdEdit.EditValue = global::RigServiceSystem.Properties.Resources.edit;
+            this.cmdEdit.Location = new System.Drawing.Point(38, 3);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdEdit.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdEdit.Size = new System.Drawing.Size(28, 29);
+            this.cmdEdit.TabIndex = 1;
+            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
             // 
             // cmdNew
             // 
@@ -188,7 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -206,7 +207,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit3;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.PictureEdit cmdEdit;
         private DevExpress.XtraEditors.PictureEdit cmdNew;
     }
 }

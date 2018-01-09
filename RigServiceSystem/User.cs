@@ -74,21 +74,6 @@ namespace RigServiceSystem
             lstUserRole.Properties.ShowHeader = false;
         }
 
-        private void cmdSave_Click(object sender, EventArgs e)
-        {
-            if(Validate())
-            {
-                if(UserId == 0)
-                {
-                    Insert();
-                }
-                else
-                {
-                    Update();
-                }
-                
-            }
-        }
         private void Insert()
         {
             try
@@ -236,6 +221,22 @@ namespace RigServiceSystem
         private void Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmdSave_Click_1(object sender, EventArgs e)
+        {
+            if (Validate())
+            {
+                if (UserId == 0)
+                {
+                    Insert();
+                }
+                else
+                {
+                    Update();
+                }
+
+            }
         }
     }
 }

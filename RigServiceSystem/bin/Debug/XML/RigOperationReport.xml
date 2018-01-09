@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DATA">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="WellOpId" type="xs:int" minOccurs="0" />
+                <xs:element name="ROWNUM" type="xs:long" minOccurs="0" />
+                <xs:element name="WellName" type="xs:string" minOccurs="0" />
+                <xs:element name="RigName" type="xs:string" minOccurs="0" />
+                <xs:element name="LocName" type="xs:string" minOccurs="0" />
+                <xs:element name="WellTypeName" type="xs:string" minOccurs="0" />
+                <xs:element name="SectionName" type="xs:string" minOccurs="0" />
+                <xs:element name="WellDepth" type="xs:decimal" minOccurs="0" />
+                <xs:element name="CurrentDepth" type="xs:decimal" minOccurs="0" />
+                <xs:element name="OperationsName" type="xs:string" minOccurs="0" />
+                <xs:element name="OprName" type="xs:string" minOccurs="0" />
+                <xs:element name="DaysOnWell" type="xs:int" minOccurs="0" />
+                <xs:element name="StartTime" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="EndTime" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="PlannedDays" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <DATA>
+    <WellOpId>1</WellOpId>
+    <ROWNUM>1</ROWNUM>
+    <WellName>Well 1</WellName>
+    <RigName>Rig 1</RigName>
+    <LocName>Cherthala</LocName>
+    <WellTypeName>Oil producer - tri lateral</WellTypeName>
+    <SectionName>Section A</SectionName>
+    <WellDepth>5000</WellDepth>
+    <CurrentDepth>5000</CurrentDepth>
+    <OperationsName>Drilling</OperationsName>
+    <OprName>Rotating</OprName>
+    <DaysOnWell>3</DaysOnWell>
+    <StartTime>2018-01-04T10:35:11+05:30</StartTime>
+    <EndTime>2018-01-05T10:15:22+05:30</EndTime>
+    <PlannedDays>0</PlannedDays>
+  </DATA>
+  <DATA>
+    <WellOpId>5</WellOpId>
+    <ROWNUM>2</ROWNUM>
+    <WellName>Well 1</WellName>
+    <RigName>Rig 1</RigName>
+    <LocName>Cherthala</LocName>
+    <WellTypeName>Oil producer - tri lateral</WellTypeName>
+    <SectionName>Section B</SectionName>
+    <WellDepth>5000</WellDepth>
+    <CurrentDepth>1500</CurrentDepth>
+    <OperationsName>operations 2</OperationsName>
+    <OprName>ABC</OprName>
+    <DaysOnWell>3</DaysOnWell>
+    <StartTime>2018-01-05T09:15:22+05:30</StartTime>
+    <PlannedDays>0</PlannedDays>
+  </DATA>
+</NewDataSet>

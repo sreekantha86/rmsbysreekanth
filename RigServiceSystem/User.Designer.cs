@@ -179,6 +179,7 @@
             this.cmdSave.Properties.Appearance.Options.UseBackColor = true;
             this.cmdSave.Size = new System.Drawing.Size(28, 29);
             this.cmdSave.TabIndex = 0;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click_1);
             // 
             // User
             // 

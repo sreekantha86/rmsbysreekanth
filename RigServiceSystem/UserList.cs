@@ -89,5 +89,17 @@ namespace RigServiceSystem
             obj.ShowDialog(this);
             FillGrid();
         }
+
+        private void cmdEdit_Click(object sender, EventArgs e)
+        {
+            int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UserId").ToString());
+            if (RowId > 0)
+            {
+                User obj = new User();
+                obj.UserId = RowId;
+                obj.ShowDialog(this);
+                FillGrid();
+            }
+        }
     }
 }
