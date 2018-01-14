@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -70,6 +72,8 @@
     <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v14.2.Extensions, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="Equipment.Designer.cs">
       <DependentUpon>Equipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FinancialYear.cs">
       <SubType>Form</SubType>
@@ -243,6 +250,11 @@
     <Compile Include="RigOperationsDailyReport.Designer.cs">
       <DependentUpon>RigOperationsDailyReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="RSSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RunningSchedules.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyFavorites.resx">
+      <DependentUpon>MyFavorites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationalDetails.resx">
       <DependentUpon>OperationalDetails.cs</DependentUpon>
@@ -413,6 +428,17 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="RibbonMarkup.ribbon" />
+    <None Include="RSSDataSet.xsc">
+      <DependentUpon>RSSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RSSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RSSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RSSDataSet.xss">
+      <DependentUpon>RSSDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -481,6 +507,7 @@
     <None Include="Resources\wellType.png" />
     <None Include="Resources\operational.png" />
     <None Include="Resources\print.png" />
+    <None Include="Resources\favorites.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

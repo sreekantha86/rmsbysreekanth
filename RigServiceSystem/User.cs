@@ -42,6 +42,7 @@ namespace RigServiceSystem
                               ,[ContactNumber]
                               ,[EmailId]
                               ,[RoleId]
+                              ,[Position]
                           FROM [dbo].[Users] WHERE [UserId] = " + UserId.ToString();
 
                 DataSet ds = repo.fillComboDataset(query);
@@ -54,6 +55,7 @@ namespace RigServiceSystem
                         txtEmployeeName.Text = dr["UserFullName"].ToString();
                         txtEmailId.Text = dr["EmailId"].ToString();
                         lstUserRole.EditValue = Convert.ToInt32(dr["RoleId"].ToString());
+                        txtPosition.Text = dr["Position"].ToString();
                     }
                 }
             }
@@ -89,14 +91,16 @@ namespace RigServiceSystem
                                ,[UserFullName]
                                ,[ContactNumber]
                                ,[EmailId]
-                               ,[RoleId])
+                               ,[RoleId]
+                               ,[Position])
                          VALUES
                                (@UserName
                                ,@UserPassword
                                ,@UserFullName
                                ,@ContactNumber
                                ,@EmailId
-                               ,@RoleId)";
+                               ,@RoleId
+                               ,@Position)";
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@UserName", txtUserName.Text));
                 param.Add(new SqlParameter("@UserPassword", hashedPassword));
@@ -104,6 +108,7 @@ namespace RigServiceSystem
                 param.Add(new SqlParameter("@ContactNumber", txtContactNumber.Text));
                 param.Add(new SqlParameter("@EmailId", txtEmailId.Text));
                 param.Add(new SqlParameter("@RoleId", lstUserRole.EditValue));
+                param.Add(new SqlParameter("@Position", txtPosition.Text));
 
                 int count = repo.ExecuteQueryWithParameters(query, param);
 
@@ -132,6 +137,7 @@ namespace RigServiceSystem
                                 ,ContactNumber = @ContactNumber
                                 ,EmailId = @EmailId
                                 ,RoleId = @RoleId
+                                ,Position = @Position
                                 WHERE UserId = " + UserId.ToString();
 
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -140,6 +146,7 @@ namespace RigServiceSystem
                 param.Add(new SqlParameter("@ContactNumber", txtContactNumber.Text));
                 param.Add(new SqlParameter("@EmailId", txtEmailId.Text));
                 param.Add(new SqlParameter("@RoleId", lstUserRole.EditValue));
+                param.Add(new SqlParameter("@Position", txtPosition.Text));
 
                 int count = repo.ExecuteQueryWithParameters(query, param);
                 if (count > 0)

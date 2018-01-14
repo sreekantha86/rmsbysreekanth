@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using RigRepository;
 using System;
@@ -27,9 +28,9 @@ namespace RigServiceSystem
         private void ShowNewForm(object sender, EventArgs e)
         {
             Form childForm = new Form();
-            childForm.MdiParent = this;
+            //childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            childForm.ShowDialog(this);
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -116,8 +117,13 @@ namespace RigServiceSystem
 
         private void HomePage_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'rSSDataSet.Resources' table. You can move, or remove it, as needed.
+            this.resourcesTableAdapter.Fill(this.rSSDataSet.Resources);
+            // TODO: This line of code loads data into the 'rSSDataSet.Appointments' table. You can move, or remove it, as needed.
+            this.appointmentsTableAdapter.Fill(this.rSSDataSet.Appointments);
             this.Text = this.Text + " - " + Program.FinancialYearName;
             toolStripStatusLabel.Text = "User - " + Program.UserName;
+                        
             SyncLocalDB.RunWorkerAsync();            
         }
         private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
@@ -259,97 +265,97 @@ namespace RigServiceSystem
         private void cmdUserRole_Click(object sender, EventArgs e)
         {
             UserRoleList obj = new UserRoleList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdUsers_Click(object sender, EventArgs e)
         {
             UserList obj = new UserList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdFinancialYear_Click(object sender, EventArgs e)
         {
             FinancialYearList obj = new FinancialYearList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdRig_Click(object sender, EventArgs e)
         {
             RigList obj = new RigList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdLocation_Click(object sender, EventArgs e)
         {
             LocationList obj = new LocationList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdOperationSearch_Click(object sender, EventArgs e)
         {
             Operations obj = new Operations();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdScheduleList_Click(object sender, EventArgs e)
         {
             RunningSchedules obj = new RunningSchedules();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdEquipment_Click(object sender, EventArgs e)
         {
             Equipment obj = new Equipment();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdRigInformation_Click(object sender, EventArgs e)
         {
             RigInformation obj = new RigInformation();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void ribbonButton11_Click(object sender, EventArgs e)
         {
             Workbench obj = new Workbench();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void ribbonButton12_Click(object sender, EventArgs e)
         {
             Equipment obj = new Equipment();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void ribbonButton13_Click(object sender, EventArgs e)
         {
             VendorList obj = new VendorList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void SyncLocalDB_DoWork(object sender, DoWorkEventArgs e)
@@ -359,14 +365,14 @@ namespace RigServiceSystem
                 while(!SyncLocalDB.CancellationPending)
                 {
                     SyncLocalDBRepository repo = new SyncLocalDBRepository();
+                    DataSet ds = GetFavorites();
+                    SyncLocalDB.ReportProgress(0, ds);
                     repo.SyncCountry();
                     repo.SyncVendorType();
                     repo.SyncVendorMaster();
                     repo.SyncLocation();
-                    repo.SyncRigType();
-                    DataSet ds = GetFavorites();
-                    Thread.Sleep(1000);
-                    SyncLocalDB.ReportProgress(0, ds);
+                    repo.SyncRigType();                    
+                    Thread.Sleep(500);
                 }
                 e.Cancel = true;
                 //SyncLocalDBRepository repo = new SyncLocalDBRepository();
@@ -397,11 +403,33 @@ namespace RigServiceSystem
         {
             if (!SyncLocalDB.CancellationPending)
             {
-                DataSet ds = (DataSet)e.UserState;
-                gridFavorites.DataSource = ds.Tables[0];
+                DataSet ds = GetFavorites();
+                if (ds.Tables.Count > 0)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        SimpleButton b = new SimpleButton();
+                        b.Text = dr["FormTitle"].ToString();
+                        b.Tag = dr["FormName"].ToString();
+                        b.Width = 100;
+                        b.Height = 50;
+                        b.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+                        b.Click += new System.EventHandler(this.btnFavorite_Click);
+                        flowLayoutPanel1.Controls.Add(b);
+                    }
+                }
             }
         }
+        private void btnFavorite_Click(object sender, EventArgs e)
+        {
+            SimpleButton b = (SimpleButton)sender;
+            string form = b.Tag.ToString();
+            var page = (Form)Activator.CreateInstance(Type.GetType("RigServiceSystem." + form));
+            page.StartPosition = FormStartPosition.CenterScreen;
+            page.ShowDialog(this);
 
+        }
         private void gridFavorites_DoubleClick(object sender, EventArgs e)
         {
             
@@ -416,48 +444,61 @@ namespace RigServiceSystem
             {
                 string form = view.GetRowCellValue(info.RowHandle, "FormName").ToString();
                 var page = (Form)Activator.CreateInstance(Type.GetType("RigServiceSystem." + form));
-                page.Show();
+                page.ShowDialog(this);
             }
         }
 
         private void cmdRigLocationMap_Click(object sender, EventArgs e)
         {
             LocationList loc = new LocationList();
-            loc.MdiParent = this;
+            //loc.MdiParent = this;
             loc.StartPosition = FormStartPosition.CenterScreen;
-            loc.Show();
+            loc.ShowDialog(this);
         }
 
         private void cmdOperationsCategory_Click(object sender, EventArgs e)
         {
             OperationsCategoryList obj = new OperationsCategoryList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void Operationals_Click(object sender, EventArgs e)
         {
             OperationalDetails obj = new OperationalDetails();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void ribbonButton10_Click(object sender, EventArgs e)
         {
             OperationsCategoryList obj = new OperationsCategoryList();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
         }
 
         private void cmdRigReportGeneration_Click(object sender, EventArgs e)
         {
             RigOperationsDailyReport obj = new RigOperationsDailyReport();
-            obj.MdiParent = this;
+            //obj.MdiParent = this;
             obj.StartPosition = FormStartPosition.CenterScreen;
-            obj.Show();
+            obj.ShowDialog(this);
+        }
+
+        private void ribbonButton14_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ribbonButton14_Click(object sender, EventArgs e)
+        {
+            MyFavorites obj = new MyFavorites();
+            //obj.MdiParent = this;
+            obj.StartPosition = FormStartPosition.CenterScreen;                        
+            obj.ShowDialog(this);
         }
     }
 }

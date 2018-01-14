@@ -47,5 +47,23 @@ namespace RigServiceSystem
             obj.ShowDialog();
             fillGrid();
         }
+
+        private void cmdPin_Click(object sender, EventArgs e)
+        {
+            UserRepository user = new UserRepository();
+            user.AddToFavoriteForms(this.Name, this.Text, Program.UserId);
+        }
+
+        private void cmdEdit_Click(object sender, EventArgs e)
+        {
+            int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OperationsId").ToString());
+            if (RowId > 0)
+            {
+                OperationsCategory obj = new OperationsCategory();
+                obj.OperationId = RowId;
+                obj.ShowDialog(this);
+                fillGrid();
+            }
+        }
     }
 }

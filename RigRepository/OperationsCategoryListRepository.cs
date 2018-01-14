@@ -12,6 +12,54 @@ namespace RigRepository
         DBFunctionRepository fun = new DBFunctionRepository();
         SQLiteFunctionRepository temp = new SQLiteFunctionRepository();
 
+        public OperationsModel GetOperation(int OperationsId)
+        {
+            OperationsModel model = new OperationsModel();
+            model.OperationTypes = new List<OperationTypeModel>();
+            try
+            {
+                string query = String.Format(@"SELECT [OperationsId]
+                                  ,[OperationsName]
+                                  ,[OperationsDescription]
+                              FROM [Operations] WHERE [OperationsId] = {0};
+                                SELECT [OprId]
+                                  ,[OperationsId]
+                                  ,[OprName]
+                              FROM [OperationsType] WHERE [OperationsId] = {0}", OperationsId);
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    DataSet ds = fun.fillComboDataset(query);
+                    if(ds.Tables.Count == 2)
+                    {
+                        foreach (DataRow item in ds.Tables[0].Rows)
+                        {
+                            model.OperationsDescription = item["OperationsDescription"].ToString();
+                            model.OperationsId = OperationsId;
+                            model.OperationsName = item["OperationsName"].ToString();
+                        }
+                        foreach (DataRow item in ds.Tables[1].Rows)
+                        {
+                            model.OperationTypes.Add(new OperationTypeModel()
+                            {
+                                OperationsId = OperationsId,
+                                OprId = Convert.ToInt32(item["OprId"].ToString()),
+                                OprName = item["OprName"].ToString()
+                            });
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }
+        }
         public OperationsModel Insert(OperationsModel model)
         {
             try

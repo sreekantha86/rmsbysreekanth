@@ -36,6 +36,7 @@
             this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
             this.cmdEdit = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdPin = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -43,6 +44,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControl1
@@ -86,6 +88,7 @@
             // 
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.cmdPin);
             this.panelControl1.Controls.Add(this.pictureEdit3);
             this.panelControl1.Controls.Add(this.cmdEdit);
             this.panelControl1.Controls.Add(this.pictureEdit1);
@@ -126,6 +129,17 @@
             this.pictureEdit1.Size = new System.Drawing.Size(28, 29);
             this.pictureEdit1.TabIndex = 0;
             // 
+            // cmdPin
+            // 
+            this.cmdPin.EditValue = global::RigServiceSystem.Properties.Resources.pin;
+            this.cmdPin.Location = new System.Drawing.Point(72, 2);
+            this.cmdPin.Name = "cmdPin";
+            this.cmdPin.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPin.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdPin.Size = new System.Drawing.Size(28, 29);
+            this.cmdPin.TabIndex = 5;
+            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
+            // 
             // UserRoleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -159,5 +174,6 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PictureEdit cmdEdit;
         private DevExpress.XtraEditors.PictureEdit pictureEdit3;
+        private DevExpress.XtraEditors.PictureEdit cmdPin;
     }
 }

@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -82,6 +85,8 @@
             this.ribbonButton11 = new System.Windows.Forms.RibbonButton();
             this.ribbon2 = new System.Windows.Forms.Ribbon();
             this.ribbonTab13 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton14 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab8 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
@@ -93,10 +98,30 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.FyId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FyName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.panelScheduler = new DevExpress.XtraEditors.PanelControl();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.rSSDataSet = new RigServiceSystem.RSSDataSet();
+            this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentsTableAdapter = new RigServiceSystem.RSSDataSetTableAdapters.AppointmentsTableAdapter();
+            this.appointmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.resourcesTableAdapter = new RigServiceSystem.RSSDataSetTableAdapters.ResourcesTableAdapter();
             this.statusStrip.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelScheduler)).BeginInit();
+            this.panelScheduler.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripStatusLabel
@@ -427,7 +452,21 @@
             // 
             // ribbonTab13
             // 
+            this.ribbonTab13.Panels.Add(this.ribbonPanel6);
             this.ribbonTab13.Text = "Utilities";
+            // 
+            // ribbonPanel6
+            // 
+            this.ribbonPanel6.Items.Add(this.ribbonButton14);
+            this.ribbonPanel6.Text = "Utilities";
+            // 
+            // ribbonButton14
+            // 
+            this.ribbonButton14.Image = global::RigServiceSystem.Properties.Resources.favorites;
+            this.ribbonButton14.SmallImage = global::RigServiceSystem.Properties.Resources.favorites;
+            this.ribbonButton14.Text = "Favorite Forms";
+            this.ribbonButton14.DoubleClick += new System.EventHandler(this.ribbonButton14_DoubleClick);
+            this.ribbonButton14.Click += new System.EventHandler(this.ribbonButton14_Click);
             // 
             // ribbonTab8
             // 
@@ -466,9 +505,9 @@
             // 
             this.panelFavorites.Controls.Add(this.gridFavorites);
             this.panelFavorites.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelFavorites.Location = new System.Drawing.Point(720, 151);
+            this.panelFavorites.Location = new System.Drawing.Point(692, 151);
             this.panelFavorites.Name = "panelFavorites";
-            this.panelFavorites.Size = new System.Drawing.Size(194, 292);
+            this.panelFavorites.Size = new System.Drawing.Size(222, 292);
             this.panelFavorites.TabIndex = 7;
             // 
             // gridFavorites
@@ -477,7 +516,7 @@
             this.gridFavorites.Location = new System.Drawing.Point(0, 0);
             this.gridFavorites.MainView = this.gridView1;
             this.gridFavorites.Name = "gridFavorites";
-            this.gridFavorites.Size = new System.Drawing.Size(194, 292);
+            this.gridFavorites.Size = new System.Drawing.Size(222, 292);
             this.gridFavorites.TabIndex = 1;
             this.gridFavorites.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -503,20 +542,93 @@
             // 
             // FyName
             // 
-            this.FyName.Caption = "Favorites";
+            this.FyName.Caption = "Alerts & Reminders";
             this.FyName.FieldName = "FormTitle";
             this.FyName.Name = "FyName";
             this.FyName.OptionsColumn.AllowEdit = false;
             this.FyName.Visible = true;
             this.FyName.VisibleIndex = 0;
             // 
+            // schedulerStorage1
+            // 
+            this.schedulerStorage1.Appointments.DataSource = this.appointmentsBindingSource2;
+            this.schedulerStorage1.Resources.DataSource = this.resourcesBindingSource;
+            // 
+            // panelScheduler
+            // 
+            this.panelScheduler.Controls.Add(this.schedulerControl1);
+            this.panelScheduler.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelScheduler.Location = new System.Drawing.Point(0, 151);
+            this.panelScheduler.Name = "panelScheduler";
+            this.panelScheduler.Size = new System.Drawing.Size(244, 292);
+            this.panelScheduler.TabIndex = 11;
+            // 
+            // schedulerControl1
+            // 
+            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulerControl1.Location = new System.Drawing.Point(2, 2);
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.Size = new System.Drawing.Size(240, 288);
+            this.schedulerControl1.Start = new System.DateTime(2018, 1, 13, 0, 0, 0, 0);
+            this.schedulerControl1.Storage = this.schedulerStorage1;
+            this.schedulerControl1.TabIndex = 12;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.MonthView.Enabled = false;
+            this.schedulerControl1.Views.WeekView.Enabled = false;
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(244, 151);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(448, 292);
+            this.flowLayoutPanel1.TabIndex = 12;
+            // 
+            // rSSDataSet
+            // 
+            this.rSSDataSet.DataSetName = "RSSDataSet";
+            this.rSSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // appointmentsBindingSource
+            // 
+            this.appointmentsBindingSource.DataMember = "Appointments";
+            this.appointmentsBindingSource.DataSource = this.rSSDataSet;
+            // 
+            // appointmentsTableAdapter
+            // 
+            this.appointmentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // appointmentsBindingSource1
+            // 
+            this.appointmentsBindingSource1.DataMember = "Appointments";
+            this.appointmentsBindingSource1.DataSource = this.rSSDataSet;
+            // 
+            // appointmentsBindingSource2
+            // 
+            this.appointmentsBindingSource2.DataMember = "Appointments";
+            this.appointmentsBindingSource2.DataSource = this.rSSDataSet;
+            // 
+            // resourcesBindingSource
+            // 
+            this.resourcesBindingSource.DataMember = "Resources";
+            this.resourcesBindingSource.DataSource = this.rSSDataSet;
+            // 
+            // resourcesTableAdapter
+            // 
+            this.resourcesTableAdapter.ClearBeforeFill = true;
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::RigServiceSystem.Properties.Resources.RigMainPage2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 465);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panelScheduler);
             this.Controls.Add(this.panelFavorites);
             this.Controls.Add(this.ribbon2);
             this.Controls.Add(this.statusStrip);
@@ -524,7 +636,7 @@
             this.IsMdiContainer = true;
             this.Name = "HomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rig Service System 1.0.0";
+            this.Text = "Rig Management System 1.0.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomePage_FormClosed);
             this.Load += new System.EventHandler(this.HomePage_Load);
@@ -533,6 +645,15 @@
             this.panelFavorites.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelScheduler)).EndInit();
+            this.panelScheduler.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,14 +716,27 @@
         private System.Windows.Forms.RibbonButton ribbonButton13;
         private System.ComponentModel.BackgroundWorker SyncLocalDB;
         private System.Windows.Forms.Timer syncTimer;
+        private System.Windows.Forms.RibbonPanel ribbonPanel15;
+        private System.Windows.Forms.RibbonButton Operationals;
+        private System.Windows.Forms.RibbonButton ribbonButton10;
         private System.Windows.Forms.Panel panelFavorites;
         private DevExpress.XtraGrid.GridControl gridFavorites;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn FyId;
         private DevExpress.XtraGrid.Columns.GridColumn FyName;
-        private System.Windows.Forms.RibbonPanel ribbonPanel15;
-        private System.Windows.Forms.RibbonButton Operationals;
-        private System.Windows.Forms.RibbonButton ribbonButton10;
+        private System.Windows.Forms.RibbonPanel ribbonPanel6;
+        private System.Windows.Forms.RibbonButton ribbonButton14;
+        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraEditors.PanelControl panelScheduler;
+        private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private RSSDataSet rSSDataSet;
+        private System.Windows.Forms.BindingSource appointmentsBindingSource;
+        private RSSDataSetTableAdapters.AppointmentsTableAdapter appointmentsTableAdapter;
+        private System.Windows.Forms.BindingSource appointmentsBindingSource2;
+        private System.Windows.Forms.BindingSource appointmentsBindingSource1;
+        private System.Windows.Forms.BindingSource resourcesBindingSource;
+        private RSSDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
     }
 }
 

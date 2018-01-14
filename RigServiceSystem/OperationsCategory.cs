@@ -70,6 +70,7 @@ namespace RigServiceSystem
             try
             {
                 OperationsModel model = new OperationsModel();
+                model.OperationTypes = new List<OperationTypeModel>();
                 model.OperationsId = OperationId;
                 model.OperationsName = txtName.Text;
                 model.OperationsDescription = txtRemarks.Text;
@@ -116,6 +117,35 @@ namespace RigServiceSystem
             if(OperationId == 0)
             {
                 InitializeGrid();
+            }
+            else
+            {
+                FillData();
+            }
+        }
+        private void FillData()
+        {
+            try
+            {
+                OperationsModel model = repo.GetOperation(OperationId);
+                if(model != null)
+                {
+                    txtName.Text = model.OperationsName;
+                    txtRemarks.Text = model.OperationsDescription;
+                    for (int i = model.OperationTypes.Count; i < 50; i++)
+                    {
+                        model.OperationTypes.Add(new OperationTypeModel()
+                        {
+                            OprId = 0,
+                            OprName = ""
+                        });
+                    }
+                    gridControl1.DataSource = model.OperationTypes;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException == null ? ex.Message : ex.InnerException.Message);
             }
         }
         private void InitializeGrid()

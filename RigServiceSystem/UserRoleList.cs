@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RigRepository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,12 @@ namespace RigServiceSystem
         private void cmdEdit_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdPin_Click(object sender, EventArgs e)
+        {
+            UserRepository user = new UserRepository();
+            user.AddToFavoriteForms(this.Name, this.Text, Program.UserId);
         }
     }
 }

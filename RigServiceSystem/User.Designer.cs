@@ -41,6 +41,8 @@
             this.txtContactNumber = new DevExpress.XtraEditors.TextEdit();
             this.lstUserRole = new DevExpress.XtraEditors.LookUpEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtPosition = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.cmdCancel = new DevExpress.XtraEditors.PictureEdit();
             this.cmdSave = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
@@ -51,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstUserRole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).BeginInit();
             this.SuspendLayout();
@@ -160,6 +163,21 @@
             this.panelControl1.Size = new System.Drawing.Size(545, 36);
             this.panelControl1.TabIndex = 13;
             // 
+            // txtPosition
+            // 
+            this.txtPosition.Location = new System.Drawing.Point(103, 152);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(155, 20);
+            this.txtPosition.TabIndex = 14;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(60, 154);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(37, 13);
+            this.labelControl7.TabIndex = 15;
+            this.labelControl7.Text = "Position";
+            // 
             // cmdCancel
             // 
             this.cmdCancel.EditValue = global::RigServiceSystem.Properties.Resources.cancel;
@@ -186,7 +204,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(547, 184);
+            this.ClientSize = new System.Drawing.Size(547, 192);
+            this.Controls.Add(this.txtPosition);
+            this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.lstUserRole);
             this.Controls.Add(this.txtContactNumber);
@@ -216,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstUserRole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).EndInit();
             this.ResumeLayout(false);
@@ -240,5 +261,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PictureEdit cmdCancel;
         private DevExpress.XtraEditors.PictureEdit cmdSave;
+        private DevExpress.XtraEditors.TextEdit txtPosition;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

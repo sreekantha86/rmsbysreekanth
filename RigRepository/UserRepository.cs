@@ -69,7 +69,8 @@ namespace RigRepository
         {
             try
             {
-                string query = @"INSERT INTO [UserFavoriteForms](UserId, FormName, FormTitle)
+                string query = @"DELETE FROM [UserFavoriteForms] WHERE FormName = @FormName and UserId = @UserId;
+                INSERT INTO [UserFavoriteForms](UserId, FormName, FormTitle)
                 VALUES(@UserId, @FormName, @FormTitle)";
 
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -90,12 +91,30 @@ namespace RigRepository
         {
             try
             {
-                string query = @"select FormName, FormTitle from UserFavoriteForms where UserId = " + userId.ToString();
+                string query = @"select distinct FormName, FormTitle from UserFavoriteForms where UserId = " + userId.ToString();
                 DataSet ds = fun.fillComboDataset(query);
                 return ds;
             }
             catch (Exception ex)
             {                
+                throw ex;
+            }
+        }
+        public void DeleteFavorite(string FormName, string UserId)
+        {
+            try
+            {
+                string query = @"DELETE FROM [UserFavoriteForms] WHERE FormName = @FormName and UserId = @UserId";
+
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@UserId", UserId));
+                param.Add(new SqlParameter("@FormName", FormName));
+
+                fun.OpenConnection();
+                fun.execQry(query, param);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

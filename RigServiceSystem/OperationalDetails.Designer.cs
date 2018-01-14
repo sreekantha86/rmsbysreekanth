@@ -49,6 +49,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDayPerc = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.SectionalDetails = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -63,7 +64,7 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtDayPerc = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.cmdPin = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
@@ -77,19 +78,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBillingDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).BeginInit();
             this.SectionalDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.WellType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.cmdPin);
             this.panelControl1.Controls.Add(this.cmdCancel);
             this.panelControl1.Controls.Add(this.cmdSave);
             this.panelControl1.Location = new System.Drawing.Point(1, 1);
@@ -289,6 +292,13 @@
             this.gridColumn9.VisibleIndex = 3;
             this.gridColumn9.Width = 182;
             // 
+            // txtDayPerc
+            // 
+            this.txtDayPerc.AutoHeight = false;
+            this.txtDayPerc.Mask.EditMask = "P0";
+            this.txtDayPerc.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDayPerc.Name = "txtDayPerc";
+            // 
             // SectionalDetails
             // 
             this.SectionalDetails.Controls.Add(this.gridControl3);
@@ -417,12 +427,16 @@
             this.gridColumn17.VisibleIndex = 2;
             this.gridColumn17.Width = 747;
             // 
-            // txtDayPerc
+            // cmdPin
             // 
-            this.txtDayPerc.AutoHeight = false;
-            this.txtDayPerc.Mask.EditMask = "P0";
-            this.txtDayPerc.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDayPerc.Name = "txtDayPerc";
+            this.cmdPin.EditValue = global::RigServiceSystem.Properties.Resources.pin;
+            this.cmdPin.Location = new System.Drawing.Point(34, 2);
+            this.cmdPin.Name = "cmdPin";
+            this.cmdPin.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPin.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdPin.Size = new System.Drawing.Size(28, 29);
+            this.cmdPin.TabIndex = 4;
+            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
             // 
             // OperationalDetails
             // 
@@ -454,13 +468,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBillingDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).EndInit();
             this.SectionalDetails.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.WellType.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDayPerc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,6 +518,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtDayPerc;
+        private DevExpress.XtraEditors.PictureEdit cmdPin;
 
     }
 }
