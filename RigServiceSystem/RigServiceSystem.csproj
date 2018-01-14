@@ -508,6 +508,7 @@
     <None Include="Resources\operational.png" />
     <None Include="Resources\print.png" />
     <None Include="Resources\favorites.png" />
+    <None Include="Resources\syncdb.png" />
     <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -65,5 +65,26 @@ namespace RigServiceSystem
                 fillGrid();
             }
         }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Do you want to Delete?","", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "OperationsId").ToString());
+                if (RowId > 0)
+                {
+                    bool res = repo.DeleteOperation(RowId);
+                    if(res)
+                    {
+                        MessageBox.Show("Deleted Successfully..");
+                        fillGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operations are already in Use. Cannot delete.");
+                    }
+                }
+            }
+        }
     }
 }

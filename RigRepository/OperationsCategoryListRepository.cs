@@ -164,6 +164,33 @@ namespace RigRepository
             return model;
         }
 
+        public bool DeleteOperation(int OperationId)
+        {
+            try
+            {
+                string query = @"delete from OperationsType where OperationsId = @OperationsId;
+                delete from Operations where OperationsId = @OperationsId;";
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@OperationsId", OperationId));
+
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    fun.execQry(query, param);
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Please check netork connection");
+                }
+            }
+            catch (Exception ex)
+            {                
+                return false;
+            }
+            return true;
+        }
+
         public DataSet GetOperationsList()
         {
             try

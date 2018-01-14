@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -109,6 +109,8 @@
             this.appointmentsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resourcesTableAdapter = new RigServiceSystem.RSSDataSetTableAdapters.ResourcesTableAdapter();
+            this.ribbonButton15 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton16 = new System.Windows.Forms.RibbonButton();
             this.statusStrip.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).BeginInit();
@@ -458,10 +460,12 @@
             // ribbonPanel6
             // 
             this.ribbonPanel6.Items.Add(this.ribbonButton14);
+            this.ribbonPanel6.Items.Add(this.ribbonButton16);
             this.ribbonPanel6.Text = "Utilities";
             // 
             // ribbonButton14
             // 
+            this.ribbonButton14.DropDownItems.Add(this.ribbonButton15);
             this.ribbonButton14.Image = global::RigServiceSystem.Properties.Resources.favorites;
             this.ribbonButton14.SmallImage = global::RigServiceSystem.Properties.Resources.favorites;
             this.ribbonButton14.Text = "Favorite Forms";
@@ -573,12 +577,12 @@
             this.schedulerControl1.Storage = this.schedulerStorage1;
             this.schedulerControl1.TabIndex = 12;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
             this.schedulerControl1.Views.MonthView.Enabled = false;
             this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
             // 
             // flowLayoutPanel1
             // 
@@ -620,6 +624,18 @@
             // resourcesTableAdapter
             // 
             this.resourcesTableAdapter.ClearBeforeFill = true;
+            // 
+            // ribbonButton15
+            // 
+            this.ribbonButton15.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.Image")));
+            this.ribbonButton15.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.SmallImage")));
+            this.ribbonButton15.Text = "ribbonButton15";
+            // 
+            // ribbonButton16
+            // 
+            this.ribbonButton16.Image = global::RigServiceSystem.Properties.Resources.syncdb;
+            this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
+            this.ribbonButton16.Text = "Sync Database";
             // 
             // HomePage
             // 
@@ -737,6 +753,8 @@
         private System.Windows.Forms.BindingSource appointmentsBindingSource1;
         private System.Windows.Forms.BindingSource resourcesBindingSource;
         private RSSDataSetTableAdapters.ResourcesTableAdapter resourcesTableAdapter;
+        private System.Windows.Forms.RibbonButton ribbonButton15;
+        private System.Windows.Forms.RibbonButton ribbonButton16;
     }
 }
 

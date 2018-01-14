@@ -62,13 +62,18 @@ namespace RigRepository
             }
         }
         public void execQry(string qry, List<SqlParameter> param)
-        {
-            SqlCommand cmd = new SqlCommand();
-
-            try
+        {            
+            SqlConnection con = getConnection();
+            if(con.State != ConnectionState.Open)
             {
-                OpenConnection();
-                cmd.Connection = getConnection();
+                con.Open();
+            }
+            SqlCommand cmd = con.CreateCommand();
+            SqlTransaction transaction = con.BeginTransaction("tran");
+            cmd.Connection = con;
+            cmd.Transaction = transaction;
+            try
+            {                
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = qry;
                 if (param.Count > 0)
@@ -79,13 +84,16 @@ namespace RigRepository
                     }
                 }
                 cmd.ExecuteNonQuery();
+                transaction.Commit();
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 throw ex;
             }
             finally
             {
+                con.Close();
                 cmd.Dispose();
                 closeConneCtion();
             }

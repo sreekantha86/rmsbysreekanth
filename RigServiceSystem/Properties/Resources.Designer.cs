@@ -483,6 +483,16 @@ namespace RigServiceSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap syncdb {
+            get {
+                object obj = ResourceManager.GetObject("syncdb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Taskcompletion {
             get {
                 object obj = ResourceManager.GetObject("Taskcompletion", resourceCulture);
