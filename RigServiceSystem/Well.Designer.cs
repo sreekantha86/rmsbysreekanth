@@ -135,7 +135,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(115, 83);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(358, 20);
+            this.txtName.Size = new System.Drawing.Size(155, 20);
             this.txtName.TabIndex = 1;
             // 
             // labelControl1
@@ -150,6 +150,7 @@
             // 
             this.txtCode.Location = new System.Drawing.Point(115, 50);
             this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(115, 20);
             this.txtCode.TabIndex = 0;
             // 
@@ -281,7 +282,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(524, 86);
+            this.labelControl10.Location = new System.Drawing.Point(306, 86);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(15, 13);
             this.labelControl10.TabIndex = 74;
@@ -289,12 +290,12 @@
             // 
             // lstRig
             // 
-            this.lstRig.Location = new System.Drawing.Point(547, 83);
+            this.lstRig.Location = new System.Drawing.Point(329, 83);
             this.lstRig.Name = "lstRig";
             this.lstRig.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lstRig.Properties.NullText = "";
-            this.lstRig.Size = new System.Drawing.Size(155, 20);
+            this.lstRig.Size = new System.Drawing.Size(115, 20);
             this.lstRig.TabIndex = 2;
             // 
             // cmdSearch

@@ -104,5 +104,12 @@ namespace RigServiceSystem
                 }
             }
         }
+
+        private void cmdEditWell_Click(object sender, EventArgs e)
+        {
+            WellList list = new WellList();
+            list.ShowDialog();
+            list.Dispose();
+        }
     }
 }

@@ -11,6 +11,27 @@ namespace RigRepository
     {
         DBFunctionRepository fun = new DBFunctionRepository();
         SQLiteFunctionRepository temp = new SQLiteFunctionRepository();
+        public string GetNewNumber()
+        {
+            try
+            {
+                string query = @"select 'RIG/'+right('0000000'+cast(isnull(max(RigId),0)+1 as varchar(10)),4) from Rig;";
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    return fun.execScalar(query);
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+        }
         public DataSet fillLocation()
         {
             try
@@ -65,7 +86,9 @@ namespace RigRepository
                                 ,RigTypeId
                                 ,RigModelNo
                                 ,RigRemarks
-                                ,RigDeployed)
+                                ,RigDeployed
+                                ,RigLocation
+                                ,RigTypeName)
                                 output INSERTED.RigId
                                 VALUES(
                                  @RigCode
@@ -76,7 +99,9 @@ namespace RigRepository
                                 ,@RigTypeId
                                 ,@RigModelNo
                                 ,@RigRemarks
-                                ,@RigDeployed)
+                                ,@RigDeployed
+                                ,@RigLocation
+                                ,@RigTypeName)
                                 ";
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@RigCode",model.RigCode));
@@ -88,6 +113,8 @@ namespace RigRepository
                 param.Add(new SqlParameter("@RigModelNo",model.RigModelNo));
                 param.Add(new SqlParameter("@RigRemarks", model.RigRemarks));
                 param.Add(new SqlParameter("@RigDeployed", model.RigDeployed));
+                param.Add(new SqlParameter("@RigLocation", model.RigLocation));
+                param.Add(new SqlParameter("@RigTypeName", model.RigTypeName));
                 fun.OpenConnection();
                 if(fun.getConnection().State == ConnectionState.Open)
                 {
@@ -118,6 +145,8 @@ namespace RigRepository
                                 ,RigModelNo = @RigModelNo
                                 ,RigRemarks = @RigRemarks
                                 ,RigDeployed = @RigDeployed
+                                ,RigLocation = @RigLocation
+                                ,RigTypeName = @RigTypeName
                                 WHERE RigId = @RigId
                                 ";
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -131,6 +160,8 @@ namespace RigRepository
                 param.Add(new SqlParameter("@RigModelNo", model.RigModelNo));
                 param.Add(new SqlParameter("@RigRemarks", model.RigRemarks));
                 param.Add(new SqlParameter("@RigDeployed", model.RigDeployed));
+                param.Add(new SqlParameter("@RigLocation", model.RigLocation));
+                param.Add(new SqlParameter("@RigTypeName", model.RigTypeName));
 
                 fun.OpenConnection();
                 if (fun.getConnection().State == ConnectionState.Open)
@@ -157,20 +188,103 @@ namespace RigRepository
                                 ,A.RigName
                                 ,A.RigManufacturer
                                 ,A.RigProject
-                                ,A.LocId
                                 ,A.RigTypeId
                                 ,A.RigModelNo
                                 ,A.RigRemarks
-                                ,B.LocName
                                 ,A.RigDeployed
-                                FROM Rig A 
-                                INNER JOIN Location B on A.LocId = B.LocId";
-
-                return fun.fillComboDataset(query);
+                                ,A.RigLocation as LocName
+                                FROM Rig A";
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    return fun.fillComboDataset(query);
+                }
+                else
+                {
+                    return temp.fillComboDataset(query);
+                }
             }
             catch (Exception ex)
             {                
                 throw ex;
+            }
+        }
+        public RigModel GetRig(int RigId)
+        {
+            RigModel model = new RigModel();
+            try
+            {
+                string query = String.Format(@"SELECT [RigId]
+                                  ,[RigCode]
+                                  ,[RigName]
+                                  ,[RigManufacturer]
+                                  ,[RigProject]
+                                  ,[LocId]
+                                  ,[RigTypeId]
+                                  ,[RigModelNo]
+                                  ,[RigRemarks]
+                                  ,[RigDeployed]
+                                  ,[RigLocation]
+                                  ,[RigTypeName]
+                              FROM [Rig] WHERE [RigId] = {0}", RigId);
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    DataSet ds = fun.fillComboDataset(query);
+                    if(ds.Tables.Count > 0)
+                    {
+                        foreach (DataRow item in ds.Tables[0].Rows)
+                        {
+                            model.LocId = Convert.ToInt32(item["LocId"].ToString());
+                            model.RigCode = item["RigCode"].ToString();
+                            if (item["RigDeployed"].ToString() == "")
+                                model.RigDeployed = null; 
+                            else
+                                model.RigDeployed = Convert.ToDateTime(item["RigDeployed"].ToString());                            
+                            model.RigId = RigId;
+                            model.RigManufacturer = item["RigManufacturer"].ToString();
+                            model.RigModelNo = item["RigModelNo"].ToString();
+                            model.RigName = item["RigName"].ToString();
+                            model.RigProject = item["RigProject"].ToString();
+                            model.RigRemarks = item["RigRemarks"].ToString();
+                            model.RigTypeId = Convert.ToInt32(item["RigTypeId"].ToString());
+                            model.RigLocation = item["RigLocation"].ToString();
+                            model.RigTypeName = item["RigTypeName"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }
+        }
+        public bool DeleteRig(int RigId)
+        {
+            try
+            {
+                string query = @"Delete From Rig where RigId = @RigId";
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@RigId", RigId));
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    fun.execQry(query, param);
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }
@@ -186,6 +300,8 @@ namespace RigRepository
         public string RigModelNo {get;set;}
         public string RigRemarks {get;set;}
         public DateTime? RigDeployed { get; set; }
+        public string RigLocation { get; set; }
+        public string RigTypeName { get; set; }
 
     }
 }

@@ -132,6 +132,7 @@ namespace RigServiceSystem
                 model.CrNoExpiry = txtCRExpiry.Text != "" ? txtCRExpiry.DateTime.ToString("dd/MMM/yyyy") : txtCRExpiry.Text;
                 model.GosiNoExpiry = txtGosiExpiry.Text != "" ? txtGosiExpiry.DateTime.ToString("dd/MMM/yyyy") : txtGosiExpiry.Text;
                 model.ZakaatExpiry = txtZakaatExpiry.Text != "" ? txtZakaatExpiry.DateTime.ToString("dd/MMM/yyyy") : txtZakaatExpiry.Text;
+                model.Keywords = txtKeyWords.Text;
 
                 model = vendor.Insert(model);
 
@@ -172,7 +173,7 @@ namespace RigServiceSystem
                 model.CrNoExpiry = txtCRExpiry.Text != "" ? txtCRExpiry.DateTime.ToString("dd/MMM/yyyy") : txtCRExpiry.Text;
                 model.GosiNoExpiry = txtGosiExpiry.Text != "" ? txtGosiExpiry.DateTime.ToString("dd/MMM/yyyy") : txtGosiExpiry.Text;
                 model.ZakaatExpiry = txtZakaatExpiry.Text != "" ? txtZakaatExpiry.DateTime.ToString("dd/MMM/yyyy") : txtZakaatExpiry.Text;
-
+                model.Keywords = txtKeyWords.Text;
 
                 model = vendor.Update(model);
 

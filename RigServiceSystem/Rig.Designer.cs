@@ -49,6 +49,8 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.txtDateOfDeploy = new DevExpress.XtraEditors.DateEdit();
+            this.txtLocation = new DevExpress.XtraEditors.TextEdit();
+            this.txtRigType = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
@@ -63,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLocation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRigType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -100,18 +104,20 @@
             // 
             // lstLocation
             // 
-            this.lstLocation.Location = new System.Drawing.Point(104, 172);
+            this.lstLocation.Location = new System.Drawing.Point(480, 112);
             this.lstLocation.Name = "lstLocation";
             this.lstLocation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lstLocation.Properties.NullText = "";
-            this.lstLocation.Size = new System.Drawing.Size(155, 20);
+            this.lstLocation.Size = new System.Drawing.Size(10, 20);
             this.lstLocation.TabIndex = 4;
+            this.lstLocation.Visible = false;
             // 
             // txtCode
             // 
             this.txtCode.Location = new System.Drawing.Point(104, 52);
             this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(155, 20);
             this.txtCode.TabIndex = 0;
             // 
@@ -171,13 +177,14 @@
             // 
             // lstRigType
             // 
-            this.lstRigType.Location = new System.Drawing.Point(104, 202);
+            this.lstRigType.Location = new System.Drawing.Point(515, 142);
             this.lstRigType.Name = "lstRigType";
             this.lstRigType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lstRigType.Properties.NullText = "";
-            this.lstRigType.Size = new System.Drawing.Size(155, 20);
+            this.lstRigType.Size = new System.Drawing.Size(28, 20);
             this.lstRigType.TabIndex = 5;
+            this.lstRigType.Visible = false;
             // 
             // txtManufacturer
             // 
@@ -244,12 +251,28 @@
             this.txtDateOfDeploy.Size = new System.Drawing.Size(96, 20);
             this.txtDateOfDeploy.TabIndex = 7;
             // 
+            // txtLocation
+            // 
+            this.txtLocation.Location = new System.Drawing.Point(105, 172);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(155, 20);
+            this.txtLocation.TabIndex = 32;
+            // 
+            // txtRigType
+            // 
+            this.txtRigType.Location = new System.Drawing.Point(105, 201);
+            this.txtRigType.Name = "txtRigType";
+            this.txtRigType.Size = new System.Drawing.Size(155, 20);
+            this.txtRigType.TabIndex = 33;
+            // 
             // Rig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(547, 342);
+            this.Controls.Add(this.txtRigType);
+            this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.txtDateOfDeploy);
             this.Controls.Add(this.labelControl9);
             this.Controls.Add(this.txtModelNo);
@@ -291,6 +314,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateOfDeploy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLocation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRigType.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +344,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit txtDateOfDeploy;
+        private DevExpress.XtraEditors.TextEdit txtLocation;
+        private DevExpress.XtraEditors.TextEdit txtRigType;
     }
 }

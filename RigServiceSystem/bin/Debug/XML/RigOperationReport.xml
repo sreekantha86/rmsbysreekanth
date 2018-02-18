@@ -35,13 +35,13 @@
     <WellName>Well 1</WellName>
     <RigName>Rig 1</RigName>
     <LocName>Cherthala</LocName>
-    <WellTypeName>Oil producer - tri lateral</WellTypeName>
+    <WellTypeName>Well Type 1</WellTypeName>
     <SectionName>Section A</SectionName>
     <WellDepth>5000</WellDepth>
     <CurrentDepth>5000</CurrentDepth>
     <OperationsName>Drilling</OperationsName>
     <OprName>Rotating</OprName>
-    <DaysOnWell>3</DaysOnWell>
+    <DaysOnWell>-40</DaysOnWell>
     <StartTime>2018-01-04T10:35:11+05:30</StartTime>
     <EndTime>2018-01-05T10:15:22+05:30</EndTime>
     <PlannedDays>0</PlannedDays>
@@ -52,13 +52,13 @@
     <WellName>Well 1</WellName>
     <RigName>Rig 1</RigName>
     <LocName>Cherthala</LocName>
-    <WellTypeName>Oil producer - tri lateral</WellTypeName>
+    <WellTypeName>Well Type 1</WellTypeName>
     <SectionName>Section B</SectionName>
     <WellDepth>5000</WellDepth>
     <CurrentDepth>1500</CurrentDepth>
     <OperationsName>operations 2</OperationsName>
     <OprName>ABC</OprName>
-    <DaysOnWell>3</DaysOnWell>
+    <DaysOnWell>-40</DaysOnWell>
     <StartTime>2018-01-05T09:15:22+05:30</StartTime>
     <PlannedDays>0</PlannedDays>
   </DATA>

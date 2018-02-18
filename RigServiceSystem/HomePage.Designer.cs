@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
-            DevExpress.XtraScheduler.TimeRuler timeRuler4 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler5 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler6 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -87,6 +87,8 @@
             this.ribbonTab13 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton14 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton15 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton16 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab8 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton13 = new System.Windows.Forms.RibbonButton();
@@ -99,31 +101,29 @@
             this.FyId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.FyName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.appointmentsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.rSSDataSet = new RigServiceSystem.RSSDataSet();
+            this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelScheduler = new DevExpress.XtraEditors.PanelControl();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rSSDataSet = new RigServiceSystem.RSSDataSet();
             this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentsTableAdapter = new RigServiceSystem.RSSDataSetTableAdapters.AppointmentsTableAdapter();
             this.appointmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.appointmentsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.resourcesTableAdapter = new RigServiceSystem.RSSDataSetTableAdapters.ResourcesTableAdapter();
-            this.ribbonButton15 = new System.Windows.Forms.RibbonButton();
-            this.ribbonButton16 = new System.Windows.Forms.RibbonButton();
             this.statusStrip.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelScheduler)).BeginInit();
             this.panelScheduler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripStatusLabel
@@ -472,6 +472,18 @@
             this.ribbonButton14.DoubleClick += new System.EventHandler(this.ribbonButton14_DoubleClick);
             this.ribbonButton14.Click += new System.EventHandler(this.ribbonButton14_Click);
             // 
+            // ribbonButton15
+            // 
+            this.ribbonButton15.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.Image")));
+            this.ribbonButton15.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.SmallImage")));
+            this.ribbonButton15.Text = "ribbonButton15";
+            // 
+            // ribbonButton16
+            // 
+            this.ribbonButton16.Image = global::RigServiceSystem.Properties.Resources.syncdb;
+            this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
+            this.ribbonButton16.Text = "Sync Database";
+            // 
             // ribbonTab8
             // 
             this.ribbonTab8.Panels.Add(this.ribbonPanel14);
@@ -558,6 +570,21 @@
             this.schedulerStorage1.Appointments.DataSource = this.appointmentsBindingSource2;
             this.schedulerStorage1.Resources.DataSource = this.resourcesBindingSource;
             // 
+            // appointmentsBindingSource2
+            // 
+            this.appointmentsBindingSource2.DataMember = "Appointments";
+            this.appointmentsBindingSource2.DataSource = this.rSSDataSet;
+            // 
+            // rSSDataSet
+            // 
+            this.rSSDataSet.DataSetName = "RSSDataSet";
+            this.rSSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // resourcesBindingSource
+            // 
+            this.resourcesBindingSource.DataMember = "Resources";
+            this.resourcesBindingSource.DataSource = this.rSSDataSet;
+            // 
             // panelScheduler
             // 
             this.panelScheduler.Controls.Add(this.schedulerControl1);
@@ -577,12 +604,11 @@
             this.schedulerControl1.Storage = this.schedulerStorage1;
             this.schedulerControl1.TabIndex = 12;
             this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler4);
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
             this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler5);
-            this.schedulerControl1.Views.MonthView.Enabled = false;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
             this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler6);
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
             // flowLayoutPanel1
             // 
@@ -591,11 +617,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(448, 292);
             this.flowLayoutPanel1.TabIndex = 12;
-            // 
-            // rSSDataSet
-            // 
-            this.rSSDataSet.DataSetName = "RSSDataSet";
-            this.rSSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // appointmentsBindingSource
             // 
@@ -611,31 +632,9 @@
             this.appointmentsBindingSource1.DataMember = "Appointments";
             this.appointmentsBindingSource1.DataSource = this.rSSDataSet;
             // 
-            // appointmentsBindingSource2
-            // 
-            this.appointmentsBindingSource2.DataMember = "Appointments";
-            this.appointmentsBindingSource2.DataSource = this.rSSDataSet;
-            // 
-            // resourcesBindingSource
-            // 
-            this.resourcesBindingSource.DataMember = "Resources";
-            this.resourcesBindingSource.DataSource = this.rSSDataSet;
-            // 
             // resourcesTableAdapter
             // 
             this.resourcesTableAdapter.ClearBeforeFill = true;
-            // 
-            // ribbonButton15
-            // 
-            this.ribbonButton15.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.Image")));
-            this.ribbonButton15.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton15.SmallImage")));
-            this.ribbonButton15.Text = "ribbonButton15";
-            // 
-            // ribbonButton16
-            // 
-            this.ribbonButton16.Image = global::RigServiceSystem.Properties.Resources.syncdb;
-            this.ribbonButton16.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton16.SmallImage")));
-            this.ribbonButton16.Text = "Sync Database";
             // 
             // HomePage
             // 
@@ -662,14 +661,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridFavorites)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelScheduler)).EndInit();
             this.panelScheduler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rSSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

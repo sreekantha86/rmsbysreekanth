@@ -30,6 +30,7 @@ namespace RigServiceSystem
             }
             else
             {
+                txtCode.Text = well.GetNewNumber();
                 ShowWellSections();
             }            
         }

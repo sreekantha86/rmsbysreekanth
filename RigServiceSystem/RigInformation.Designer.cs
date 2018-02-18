@@ -29,50 +29,50 @@
         private void InitializeComponent()
         {
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.lstRig = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtRigSpecification = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtManufacturer = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtModelNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProject = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.txtOperatingDays = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCurrentLocation = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCurrentWell = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+            this.txtCurrentOperation = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
+            this.txtRooms = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+            this.txtNoPeopleInHand = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lstRig.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRigSpecification.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOperatingDays.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentLocation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentWell.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentOperation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRooms.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoPeopleInHand.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl5
@@ -84,22 +84,24 @@
             this.labelControl5.TabIndex = 28;
             this.labelControl5.Text = "Select Rig";
             // 
-            // lookUpEdit1
+            // lstRig
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(121, 12);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lstRig.Location = new System.Drawing.Point(121, 12);
+            this.lstRig.Name = "lstRig";
+            this.lstRig.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Size = new System.Drawing.Size(302, 20);
-            this.lookUpEdit1.TabIndex = 27;
+            this.lstRig.Properties.NullText = "";
+            this.lstRig.Size = new System.Drawing.Size(302, 20);
+            this.lstRig.TabIndex = 27;
+            this.lstRig.TextChanged += new System.EventHandler(this.lstRig_TextChanged);
             // 
-            // textEdit2
+            // txtRigSpecification
             // 
-            this.textEdit2.Location = new System.Drawing.Point(121, 44);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(302, 20);
-            this.textEdit2.TabIndex = 47;
+            this.txtRigSpecification.Location = new System.Drawing.Point(121, 44);
+            this.txtRigSpecification.Name = "txtRigSpecification";
+            this.txtRigSpecification.Properties.ReadOnly = true;
+            this.txtRigSpecification.Size = new System.Drawing.Size(302, 20);
+            this.txtRigSpecification.TabIndex = 47;
             // 
             // labelControl6
             // 
@@ -109,12 +111,13 @@
             this.labelControl6.TabIndex = 48;
             this.labelControl6.Text = "Rig Specification";
             // 
-            // textEdit1
+            // txtManufacturer
             // 
-            this.textEdit1.Location = new System.Drawing.Point(121, 76);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(302, 20);
-            this.textEdit1.TabIndex = 49;
+            this.txtManufacturer.Location = new System.Drawing.Point(121, 76);
+            this.txtManufacturer.Name = "txtManufacturer";
+            this.txtManufacturer.Properties.ReadOnly = true;
+            this.txtManufacturer.Size = new System.Drawing.Size(302, 20);
+            this.txtManufacturer.TabIndex = 49;
             // 
             // labelControl1
             // 
@@ -124,12 +127,13 @@
             this.labelControl1.TabIndex = 50;
             this.labelControl1.Text = "Manufacturer";
             // 
-            // textEdit3
+            // txtModelNo
             // 
-            this.textEdit3.Location = new System.Drawing.Point(538, 76);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(169, 20);
-            this.textEdit3.TabIndex = 51;
+            this.txtModelNo.Location = new System.Drawing.Point(538, 76);
+            this.txtModelNo.Name = "txtModelNo";
+            this.txtModelNo.Properties.ReadOnly = true;
+            this.txtModelNo.Size = new System.Drawing.Size(169, 20);
+            this.txtModelNo.TabIndex = 51;
             // 
             // labelControl2
             // 
@@ -139,12 +143,13 @@
             this.labelControl2.TabIndex = 52;
             this.labelControl2.Text = "Model No.";
             // 
-            // textEdit4
+            // txtProject
             // 
-            this.textEdit4.Location = new System.Drawing.Point(121, 108);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(302, 20);
-            this.textEdit4.TabIndex = 53;
+            this.txtProject.Location = new System.Drawing.Point(121, 108);
+            this.txtProject.Name = "txtProject";
+            this.txtProject.Properties.ReadOnly = true;
+            this.txtProject.Size = new System.Drawing.Size(302, 20);
+            this.txtProject.TabIndex = 53;
             // 
             // labelControl3
             // 
@@ -154,12 +159,13 @@
             this.labelControl3.TabIndex = 54;
             this.labelControl3.Text = "Project";
             // 
-            // textEdit5
+            // txtOperatingDays
             // 
-            this.textEdit5.Location = new System.Drawing.Point(121, 140);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(302, 20);
-            this.textEdit5.TabIndex = 55;
+            this.txtOperatingDays.Location = new System.Drawing.Point(121, 140);
+            this.txtOperatingDays.Name = "txtOperatingDays";
+            this.txtOperatingDays.Properties.ReadOnly = true;
+            this.txtOperatingDays.Size = new System.Drawing.Size(302, 20);
+            this.txtOperatingDays.TabIndex = 55;
             // 
             // labelControl4
             // 
@@ -169,12 +175,13 @@
             this.labelControl4.TabIndex = 56;
             this.labelControl4.Text = "Safe Operating Days";
             // 
-            // textEdit6
+            // txtCurrentLocation
             // 
-            this.textEdit6.Location = new System.Drawing.Point(121, 172);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(302, 20);
-            this.textEdit6.TabIndex = 57;
+            this.txtCurrentLocation.Location = new System.Drawing.Point(121, 172);
+            this.txtCurrentLocation.Name = "txtCurrentLocation";
+            this.txtCurrentLocation.Properties.ReadOnly = true;
+            this.txtCurrentLocation.Size = new System.Drawing.Size(302, 20);
+            this.txtCurrentLocation.TabIndex = 57;
             // 
             // labelControl7
             // 
@@ -184,12 +191,13 @@
             this.labelControl7.TabIndex = 58;
             this.labelControl7.Text = "Current Location";
             // 
-            // textEdit7
+            // txtCurrentWell
             // 
-            this.textEdit7.Location = new System.Drawing.Point(121, 204);
-            this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Size = new System.Drawing.Size(302, 20);
-            this.textEdit7.TabIndex = 59;
+            this.txtCurrentWell.Location = new System.Drawing.Point(121, 204);
+            this.txtCurrentWell.Name = "txtCurrentWell";
+            this.txtCurrentWell.Properties.ReadOnly = true;
+            this.txtCurrentWell.Size = new System.Drawing.Size(302, 20);
+            this.txtCurrentWell.TabIndex = 59;
             // 
             // labelControl8
             // 
@@ -199,12 +207,13 @@
             this.labelControl8.TabIndex = 60;
             this.labelControl8.Text = "Current Well";
             // 
-            // textEdit8
+            // txtCurrentOperation
             // 
-            this.textEdit8.Location = new System.Drawing.Point(538, 204);
-            this.textEdit8.Name = "textEdit8";
-            this.textEdit8.Size = new System.Drawing.Size(169, 20);
-            this.textEdit8.TabIndex = 61;
+            this.txtCurrentOperation.Location = new System.Drawing.Point(538, 204);
+            this.txtCurrentOperation.Name = "txtCurrentOperation";
+            this.txtCurrentOperation.Properties.ReadOnly = true;
+            this.txtCurrentOperation.Size = new System.Drawing.Size(169, 20);
+            this.txtCurrentOperation.TabIndex = 61;
             // 
             // labelControl9
             // 
@@ -214,12 +223,13 @@
             this.labelControl9.TabIndex = 62;
             this.labelControl9.Text = "Current Operation";
             // 
-            // textEdit9
+            // txtRooms
             // 
-            this.textEdit9.Location = new System.Drawing.Point(538, 236);
-            this.textEdit9.Name = "textEdit9";
-            this.textEdit9.Size = new System.Drawing.Size(169, 20);
-            this.textEdit9.TabIndex = 65;
+            this.txtRooms.Location = new System.Drawing.Point(538, 236);
+            this.txtRooms.Name = "txtRooms";
+            this.txtRooms.Properties.ReadOnly = true;
+            this.txtRooms.Size = new System.Drawing.Size(169, 20);
+            this.txtRooms.TabIndex = 65;
             // 
             // labelControl10
             // 
@@ -229,12 +239,13 @@
             this.labelControl10.TabIndex = 66;
             this.labelControl10.Text = "Rooms Available";
             // 
-            // textEdit10
+            // txtNoPeopleInHand
             // 
-            this.textEdit10.Location = new System.Drawing.Point(121, 236);
-            this.textEdit10.Name = "textEdit10";
-            this.textEdit10.Size = new System.Drawing.Size(302, 20);
-            this.textEdit10.TabIndex = 63;
+            this.txtNoPeopleInHand.Location = new System.Drawing.Point(121, 236);
+            this.txtNoPeopleInHand.Name = "txtNoPeopleInHand";
+            this.txtNoPeopleInHand.Properties.ReadOnly = true;
+            this.txtNoPeopleInHand.Size = new System.Drawing.Size(302, 20);
+            this.txtNoPeopleInHand.TabIndex = 63;
             // 
             // labelControl11
             // 
@@ -254,6 +265,16 @@
             this.groupControl1.TabIndex = 67;
             this.groupControl1.Text = "Rig History";
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(3, 33);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(745, 182);
+            this.gridControl1.TabIndex = 69;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -269,10 +290,12 @@
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Well Name";
+            this.gridColumn1.FieldName = "WellName";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 442;
             // 
             // gridColumn2
             // 
@@ -281,6 +304,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 132;
             // 
             // gridColumn3
             // 
@@ -289,32 +313,27 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 125;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Well Depth";
+            this.gridColumn4.FieldName = "WellDepth";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 141;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Type Of Well";
+            this.gridColumn5.FieldName = "WellTypeName";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(3, 33);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(745, 182);
-            this.gridControl1.TabIndex = 69;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridColumn5.Width = 238;
             // 
             // RigInformation
             // 
@@ -322,49 +341,50 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 481);
             this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.textEdit9);
+            this.Controls.Add(this.txtRooms);
             this.Controls.Add(this.labelControl10);
-            this.Controls.Add(this.textEdit10);
+            this.Controls.Add(this.txtNoPeopleInHand);
             this.Controls.Add(this.labelControl11);
-            this.Controls.Add(this.textEdit8);
+            this.Controls.Add(this.txtCurrentOperation);
             this.Controls.Add(this.labelControl9);
-            this.Controls.Add(this.textEdit7);
+            this.Controls.Add(this.txtCurrentWell);
             this.Controls.Add(this.labelControl8);
-            this.Controls.Add(this.textEdit6);
+            this.Controls.Add(this.txtCurrentLocation);
             this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.textEdit5);
+            this.Controls.Add(this.txtOperatingDays);
             this.Controls.Add(this.labelControl4);
-            this.Controls.Add(this.textEdit4);
+            this.Controls.Add(this.txtProject);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.textEdit3);
+            this.Controls.Add(this.txtModelNo);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtManufacturer);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.textEdit2);
+            this.Controls.Add(this.txtRigSpecification);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.lookUpEdit1);
+            this.Controls.Add(this.lstRig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "RigInformation";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rig Information";
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
+            this.Load += new System.EventHandler(this.RigInformation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.lstRig.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRigSpecification.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtManufacturer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModelNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProject.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOperatingDays.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentLocation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentWell.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCurrentOperation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRooms.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoPeopleInHand.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,26 +393,26 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LookUpEdit lstRig;
+        private DevExpress.XtraEditors.TextEdit txtRigSpecification;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtManufacturer;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit txtModelNo;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtProject;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit txtOperatingDays;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraEditors.TextEdit txtCurrentLocation;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit textEdit7;
+        private DevExpress.XtraEditors.TextEdit txtCurrentWell;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit textEdit8;
+        private DevExpress.XtraEditors.TextEdit txtCurrentOperation;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.TextEdit textEdit9;
+        private DevExpress.XtraEditors.TextEdit txtRooms;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.TextEdit textEdit10;
+        private DevExpress.XtraEditors.TextEdit txtNoPeopleInHand;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gridControl1;

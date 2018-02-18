@@ -11,6 +11,27 @@ namespace RigRepository
     {
         DBFunctionRepository fun = new DBFunctionRepository();
         SQLiteFunctionRepository temp = new SQLiteFunctionRepository();
+        public string GetNewNumber()
+        {
+            try
+            {
+                string query = @"select 'WELL/'+right('0000000'+cast(isnull(max(WellId),0)+1 as varchar(10)),4) from Well";
+                fun.OpenConnection();
+                if (fun.getConnection().State == ConnectionState.Open)
+                {
+                    return fun.execScalar(query);
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public DataSet fillLocation()
         {
             try
@@ -487,6 +508,51 @@ namespace RigRepository
                             model.CurrentDepth = Convert.ToDecimal(item["CurrentDepth"].ToString());
                             model.OperationsName = item["OperationsName"].ToString();
                             model.DaysOnWell = Convert.ToInt32(item["DaysOnWell"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return model;
+        }
+        public List<CurrentOperationModel> GetCurrentOperationOnWells(int RigId)
+        {
+            List<CurrentOperationModel> model = new List<CurrentOperationModel>();
+            try
+            {
+                string query = String.Format(@"select top 1 
+                WellName, LocName, WellTypeName, SectionName, B.WellDepth, A.CurrentDepth,
+                OperationsName, Datediff(dd, getdate(),WellPlannedDate)DaysOnWell 
+                from WellOperations A 
+                inner join Well B on A.WellId = B.WellId
+                inner join WellType C on B.WellTypeId = C.WellTypeId
+                inner join Location D on D.LocId = B.LocationId
+                inner join SectionalDetails E on E.SecId = A.SecId
+                inner join Operations F on F.OperationsId = A.OperationsId
+                where B.RigId = {0}
+                order by WellOpId desc", RigId);
+
+                fun.OpenConnection();
+                if (fun.getConnection().State == ConnectionState.Open)
+                {
+                    DataSet ds = fun.fillComboDataset(query);
+                    if (ds.Tables.Count > 0)
+                    {
+                        foreach (DataRow item in ds.Tables[0].Rows)
+                        {
+                            model.Add(new CurrentOperationModel(){
+                                WellName = item["WellName"].ToString(),
+                                LocName = item["LocName"].ToString(),
+                                WellTypeName = item["WellTypeName"].ToString(),
+                                SectionName = item["SectionName"].ToString(),
+                                WellDepth = Convert.ToDecimal(item["WellDepth"].ToString()),
+                                CurrentDepth = Convert.ToDecimal(item["CurrentDepth"].ToString()),
+                                OperationsName = item["OperationsName"].ToString(),
+                                DaysOnWell = Convert.ToInt32(item["DaysOnWell"].ToString())
+                            });
                         }
                     }
                 }

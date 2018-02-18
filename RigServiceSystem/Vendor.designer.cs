@@ -71,6 +71,9 @@
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.txtVendorCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.txtKeyWords = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFax.Properties)).BeginInit();
@@ -100,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGosiExpiry.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGosiExpiry.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendorCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKeyWords.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -465,12 +469,40 @@
             this.labelControl20.TabIndex = 41;
             this.labelControl20.Text = "Vendor Code";
             // 
+            // txtKeyWords
+            // 
+            this.txtKeyWords.Location = new System.Drawing.Point(85, 355);
+            this.txtKeyWords.Name = "txtKeyWords";
+            this.txtKeyWords.Size = new System.Drawing.Size(444, 39);
+            this.txtKeyWords.TabIndex = 42;
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(24, 356);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(50, 13);
+            this.labelControl21.TabIndex = 43;
+            this.labelControl21.Text = "Key words";
+            // 
+            // labelControl22
+            // 
+            this.labelControl22.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic);
+            this.labelControl22.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl22.Location = new System.Drawing.Point(535, 356);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(274, 13);
+            this.labelControl22.TabIndex = 44;
+            this.labelControl22.Text = "(Separate key words by space, it will make search fast..)";
+            // 
             // Vendor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(832, 370);
+            this.ClientSize = new System.Drawing.Size(832, 403);
+            this.Controls.Add(this.labelControl22);
+            this.Controls.Add(this.txtKeyWords);
+            this.Controls.Add(this.labelControl21);
             this.Controls.Add(this.txtVendorCode);
             this.Controls.Add(this.labelControl20);
             this.Controls.Add(this.txtGosiExpiry);
@@ -549,6 +581,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGosiExpiry.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGosiExpiry.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVendorCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKeyWords.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,5 +632,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.TextEdit txtVendorCode;
         private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.MemoEdit txtKeyWords;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.LabelControl labelControl22;
     }
 }

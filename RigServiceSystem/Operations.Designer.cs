@@ -50,6 +50,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtLocation = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cmdEditWell = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.lstRig.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -86,7 +87,7 @@
             // simpleButton2
             // 
             this.simpleButton2.Image = global::RigServiceSystem.Properties.Resources.operations;
-            this.simpleButton2.Location = new System.Drawing.Point(613, 160);
+            this.simpleButton2.Location = new System.Drawing.Point(613, 119);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(130, 31);
             this.simpleButton2.TabIndex = 73;
@@ -96,7 +97,7 @@
             // cmdNewWell
             // 
             this.cmdNewWell.Image = global::RigServiceSystem.Properties.Resources.Well;
-            this.cmdNewWell.Location = new System.Drawing.Point(613, 84);
+            this.cmdNewWell.Location = new System.Drawing.Point(613, 43);
             this.cmdNewWell.Name = "cmdNewWell";
             this.cmdNewWell.Size = new System.Drawing.Size(130, 31);
             this.cmdNewWell.TabIndex = 46;
@@ -106,7 +107,7 @@
             // cmdUpdateOperations
             // 
             this.cmdUpdateOperations.Image = global::RigServiceSystem.Properties.Resources.operations;
-            this.cmdUpdateOperations.Location = new System.Drawing.Point(613, 121);
+            this.cmdUpdateOperations.Location = new System.Drawing.Point(613, 80);
             this.cmdUpdateOperations.Name = "cmdUpdateOperations";
             this.cmdUpdateOperations.Size = new System.Drawing.Size(130, 31);
             this.cmdUpdateOperations.TabIndex = 47;
@@ -267,11 +268,22 @@
             this.labelControl6.Text = "Current Location";
             this.labelControl6.Click += new System.EventHandler(this.labelControl6_Click_1);
             // 
+            // cmdEditWell
+            // 
+            this.cmdEditWell.Image = global::RigServiceSystem.Properties.Resources.Well;
+            this.cmdEditWell.Location = new System.Drawing.Point(613, 157);
+            this.cmdEditWell.Name = "cmdEditWell";
+            this.cmdEditWell.Size = new System.Drawing.Size(130, 31);
+            this.cmdEditWell.TabIndex = 74;
+            this.cmdEditWell.Text = "Edit Well Details";
+            this.cmdEditWell.Click += new System.EventHandler(this.cmdEditWell_Click);
+            // 
             // Operations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 225);
+            this.Controls.Add(this.cmdEditWell);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.cmdNewWell);
             this.Controls.Add(this.cmdUpdateOperations);
@@ -327,5 +339,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton cmdUpdateOperations;
+        private DevExpress.XtraEditors.SimpleButton cmdEditWell;
     }
 }

@@ -96,6 +96,7 @@ namespace RigRepository
                               ,[CrNoExpiry]
                               ,[GosiNoExpiry]
                               ,[ZakaatExpiry]
+                              ,[Keywords]
                           FROM [dbo].[Vendor] WHERE [VendorId] = " + Id.ToString();
                 fun.OpenConnection();
                 if(fun.getConnection().State != ConnectionState.Open)
@@ -176,7 +177,8 @@ namespace RigRepository
                                ,ChamberNoExpiry
                                ,CrNoExpiry
                                ,GosiNoExpiry
-                               ,ZakaatExpiry)
+                               ,ZakaatExpiry
+                               ,Keywords)
                          output INSERTED.VendorId
                          VALUES
                                (@VendorCode
@@ -196,7 +198,8 @@ namespace RigRepository
                                ,@ChamberNoExpiry
                                ,@CrNoExpiry
                                ,@GosiNoExpiry
-                               ,@ZakaatExpiry)";
+                               ,@ZakaatExpiry
+                               ,@Keywords)";
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@VendorCode", model.VendorCode));
                 param.Add(new SqlParameter("@VendorName", model.VendorName));
@@ -211,6 +214,7 @@ namespace RigRepository
                 param.Add(new SqlParameter("@GosiNo", model.GosiNo));
                 param.Add(new SqlParameter("@Zakaat", model.Zakaat));
                 param.Add(new SqlParameter("@ChamberNo", model.ChamberNo));
+                param.Add(new SqlParameter("@Keywords", model.Keywords));
 
                 if (model.VATExpiry == "")
                     param.Add(new SqlParameter("@VATExpiry", System.DBNull.Value));
@@ -294,6 +298,7 @@ namespace RigRepository
                                ,[CrNoExpiry] = @CrNoExpiry
                                ,[GosiNoExpiry] = @GosiNoExpiry
                                ,[ZakaatExpiry] = @ZakaatExpiry
+                               ,[Keywords] = @Keywords
                          WHERE VendorId = '" + model.VendorId + @"'";
 
                 List<SqlParameter> param = new List<SqlParameter>();
@@ -310,6 +315,7 @@ namespace RigRepository
                 param.Add(new SqlParameter("@GosiNo", model.GosiNo));
                 param.Add(new SqlParameter("@Zakaat", model.Zakaat));
                 param.Add(new SqlParameter("@ChamberNo", model.ChamberNo));
+                param.Add(new SqlParameter("@Keywords", model.Keywords));
 
                 if (model.VATExpiry == "")
                     param.Add(new SqlParameter("@VATExpiry", System.DBNull.Value));
@@ -370,16 +376,29 @@ namespace RigRepository
             }
             return model;
         }
-        public DataSet GetVendorList()
+        public DataSet GetVendorList(string keywords)
         {
             DataSet ds = new DataSet();
             try
             {
-                string query = @"select B.VendorId, B.VendorName, B.ContactPerson, C.CountryName, E.VendorTypeName
+                string query = @"select B.VendorId, B.VendorName, B.ContactPerson, C.CountryName, E.VendorTypeName, Keywords
                             from Vendor B 
                             left join Country C on B.CountryId = C.CountryId
-                            left join VendorType E on B.VendorTypeId = E.VendorTypeId
-                            order by B.VendorName";
+                            left join VendorType E on B.VendorTypeId = E.VendorTypeId";
+                string[] keys = keywords.Split(',');
+                int i = 0;
+                foreach (var item in keys)
+                {
+                    if(item != "")
+                    {
+                        if (i == 0)
+                            query += String.Format(" where KeyWords like '%{0}%'", item);
+                        else
+                            query += String.Format(" or KeyWords like '%{0}%'", item);
+                        i++;
+                    }                    
+                }
+                query += " order by B.VendorName";
                 fun.OpenConnection();
                 if(fun.getConnection().State == ConnectionState.Open)
                 {
@@ -420,5 +439,6 @@ namespace RigRepository
         public string CrNoExpiry { get; set; }
         public string GosiNoExpiry { get; set; }
         public string ZakaatExpiry { get; set; }
+        public string Keywords { get; set; }
     }
 }

@@ -47,5 +47,43 @@ namespace RigServiceSystem
             UserRepository user = new UserRepository();
             user.AddToFavoriteForms(this.Name, this.Text, Program.UserId);
         }
+
+        private void pictureEdit3_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdEdit_Click(object sender, EventArgs e)
+        {
+            int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "RigId").ToString());
+            if (RowId > 0)
+            {
+                Rig obj = new Rig();
+                obj.RigId = RowId;
+                obj.ShowDialog(this);
+                FillGrid();
+            }
+        }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to Delete?", "", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                int RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "RigId").ToString());
+                if (RowId > 0)
+                {
+                    bool res = repo.DeleteRig(RowId);
+                    if (res)
+                    {
+                        MessageBox.Show("Deleted Successfully..");
+                        FillGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rig already in Use. Cannot delete.");
+                    }
+                }
+            }
+        }
     }
 }

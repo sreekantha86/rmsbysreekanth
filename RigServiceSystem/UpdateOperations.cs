@@ -31,6 +31,7 @@ namespace RigServiceSystem
                 txtStartDatetime.DateTime = DateTime.Now;
                 lblEndDateTime.Visible = false;
                 txtEndDateTime.Visible = false;
+                chkEndDate.Visible = false;
             }
             if (RigId > 0 && WellOpId > 0)
             {
@@ -248,6 +249,46 @@ namespace RigServiceSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.InnerException == null ? ex.Message : ex.InnerException.Message);
+            }
+        }
+
+        private void chkEndDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkEndDate.Checked)
+            {
+                txtEndDateTime.DateTime = DateTime.Now;
+            }
+        }
+
+        private void chkStartDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkStartDate.Checked)
+            {
+                txtStartDatetime.DateTime = DateTime.Now;
+            }
+        }
+
+        private void chkDepth_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDepth.Checked)
+            {
+                DataSet ds = repo.GetLastWellDetails(WellId);
+                if(ds.Tables.Count>0 && ds.Tables[0].Rows.Count>0)
+                {
+                    txtCurrentDepth.Text = ds.Tables[0].Rows[0]["CurrentDepth"].ToString();
+                }
+            }
+        }
+
+        private void chkSection_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSection.Checked)
+            {
+                DataSet ds = repo.GetLastWellDetails(WellId);
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    lstCurrentSection.EditValue = Convert.ToInt32(ds.Tables[0].Rows[0]["SecId"].ToString());
+                }
             }
         }
     }

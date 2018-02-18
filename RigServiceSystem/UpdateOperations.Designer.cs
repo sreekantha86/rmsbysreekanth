@@ -38,6 +38,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtLocation = new DevExpress.XtraEditors.TextEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.txtEndDateTime = new DevExpress.XtraEditors.DateEdit();
+            this.lblEndDateTime = new DevExpress.XtraEditors.LabelControl();
             this.lstCurrentSection = new DevExpress.XtraEditors.LookUpEdit();
             this.txtCurrentDepth = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -53,8 +55,10 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cmdCancel = new DevExpress.XtraEditors.PictureEdit();
             this.cmdSave = new DevExpress.XtraEditors.PictureEdit();
-            this.txtEndDateTime = new DevExpress.XtraEditors.DateEdit();
-            this.lblEndDateTime = new DevExpress.XtraEditors.LabelControl();
+            this.chkDepth = new DevExpress.XtraEditors.CheckEdit();
+            this.chkSection = new DevExpress.XtraEditors.CheckEdit();
+            this.chkStartDate = new DevExpress.XtraEditors.CheckEdit();
+            this.chkEndDate = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWellType.Properties)).BeginInit();
@@ -63,6 +67,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtLocation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstCurrentSection.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurrentDepth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDatetime.Properties.CalendarTimeProperties)).BeginInit();
@@ -74,8 +80,10 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDepth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSection.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEndDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -162,6 +170,10 @@
             // groupControl2
             // 
             this.groupControl2.CaptionImage = global::RigServiceSystem.Properties.Resources.operations;
+            this.groupControl2.Controls.Add(this.chkEndDate);
+            this.groupControl2.Controls.Add(this.chkDepth);
+            this.groupControl2.Controls.Add(this.chkSection);
+            this.groupControl2.Controls.Add(this.chkStartDate);
             this.groupControl2.Controls.Add(this.txtEndDateTime);
             this.groupControl2.Controls.Add(this.lblEndDateTime);
             this.groupControl2.Controls.Add(this.lstCurrentSection);
@@ -178,9 +190,31 @@
             this.groupControl2.Controls.Add(this.lstOperationCategory);
             this.groupControl2.Location = new System.Drawing.Point(2, 160);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(701, 266);
+            this.groupControl2.Size = new System.Drawing.Size(701, 294);
             this.groupControl2.TabIndex = 47;
             this.groupControl2.Text = "Operation Details";
+            // 
+            // txtEndDateTime
+            // 
+            this.txtEndDateTime.EditValue = null;
+            this.txtEndDateTime.Location = new System.Drawing.Point(147, 260);
+            this.txtEndDateTime.Name = "txtEndDateTime";
+            this.txtEndDateTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEndDateTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEndDateTime.Properties.Mask.EditMask = "g";
+            this.txtEndDateTime.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtEndDateTime.Size = new System.Drawing.Size(222, 20);
+            this.txtEndDateTime.TabIndex = 80;
+            // 
+            // lblEndDateTime
+            // 
+            this.lblEndDateTime.Location = new System.Drawing.Point(62, 263);
+            this.lblEndDateTime.Name = "lblEndDateTime";
+            this.lblEndDateTime.Size = new System.Drawing.Size(79, 13);
+            this.lblEndDateTime.TabIndex = 81;
+            this.lblEndDateTime.Text = "End Date && Time";
             // 
             // lstCurrentSection
             // 
@@ -324,33 +358,48 @@
             this.cmdSave.TabIndex = 0;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
-            // txtEndDateTime
+            // chkDepth
             // 
-            this.txtEndDateTime.EditValue = null;
-            this.txtEndDateTime.Location = new System.Drawing.Point(460, 161);
-            this.txtEndDateTime.Name = "txtEndDateTime";
-            this.txtEndDateTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEndDateTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEndDateTime.Properties.Mask.EditMask = "g";
-            this.txtEndDateTime.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtEndDateTime.Size = new System.Drawing.Size(222, 20);
-            this.txtEndDateTime.TabIndex = 80;
+            this.chkDepth.Location = new System.Drawing.Point(375, 230);
+            this.chkDepth.Name = "chkDepth";
+            this.chkDepth.Properties.Caption = "Use Previous Depth";
+            this.chkDepth.Size = new System.Drawing.Size(266, 19);
+            this.chkDepth.TabIndex = 85;
+            this.chkDepth.CheckedChanged += new System.EventHandler(this.chkDepth_CheckedChanged);
             // 
-            // lblEndDateTime
+            // chkSection
             // 
-            this.lblEndDateTime.Location = new System.Drawing.Point(375, 164);
-            this.lblEndDateTime.Name = "lblEndDateTime";
-            this.lblEndDateTime.Size = new System.Drawing.Size(79, 13);
-            this.lblEndDateTime.TabIndex = 81;
-            this.lblEndDateTime.Text = "End Date && Time";
+            this.chkSection.Location = new System.Drawing.Point(375, 195);
+            this.chkSection.Name = "chkSection";
+            this.chkSection.Properties.Caption = "Use Previous Section";
+            this.chkSection.Size = new System.Drawing.Size(266, 19);
+            this.chkSection.TabIndex = 83;
+            this.chkSection.CheckedChanged += new System.EventHandler(this.chkSection_CheckedChanged);
+            // 
+            // chkStartDate
+            // 
+            this.chkStartDate.Location = new System.Drawing.Point(375, 162);
+            this.chkStartDate.Name = "chkStartDate";
+            this.chkStartDate.Properties.Caption = "Use Current Date && Time";
+            this.chkStartDate.Size = new System.Drawing.Size(266, 19);
+            this.chkStartDate.TabIndex = 82;
+            this.chkStartDate.CheckedChanged += new System.EventHandler(this.chkStartDate_CheckedChanged);
+            // 
+            // chkEndDate
+            // 
+            this.chkEndDate.Location = new System.Drawing.Point(375, 261);
+            this.chkEndDate.Name = "chkEndDate";
+            this.chkEndDate.Properties.Caption = "Use Current Date && Time";
+            this.chkEndDate.Size = new System.Drawing.Size(266, 19);
+            this.chkEndDate.TabIndex = 86;
+            this.chkEndDate.Visible = false;
+            this.chkEndDate.CheckedChanged += new System.EventHandler(this.chkEndDate_CheckedChanged);
             // 
             // UpdateOperations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 427);
+            this.ClientSize = new System.Drawing.Size(704, 455);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -372,6 +421,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstCurrentSection.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCurrentDepth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDatetime.Properties.CalendarTimeProperties)).EndInit();
@@ -383,8 +434,10 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmdCancel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdSave.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEndDateTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDepth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSection.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEndDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,5 +471,9 @@
         private DevExpress.XtraEditors.PictureEdit cmdSave;
         private DevExpress.XtraEditors.DateEdit txtEndDateTime;
         private DevExpress.XtraEditors.LabelControl lblEndDateTime;
+        private DevExpress.XtraEditors.CheckEdit chkEndDate;
+        private DevExpress.XtraEditors.CheckEdit chkDepth;
+        private DevExpress.XtraEditors.CheckEdit chkSection;
+        private DevExpress.XtraEditors.CheckEdit chkStartDate;
     }
 }

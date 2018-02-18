@@ -28,7 +28,7 @@ namespace RigServiceSystem
         {
             try
             {
-                DataSet ds = vendor.GetVendorList();
+                DataSet ds = vendor.GetVendorList(txtKeys.Text);
 
                 gridControl1.DataSource = ds.Tables[0];
             }
@@ -107,6 +107,11 @@ namespace RigServiceSystem
         {
             UserRepository user = new UserRepository();
             user.AddToFavoriteForms(this.Name, this.Text, Program.UserId);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FillGrid();
         }
     }
 }

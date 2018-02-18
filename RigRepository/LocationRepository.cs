@@ -59,7 +59,7 @@ namespace RigRepository
             try
             {
                 string query = @"UPDATE Location SET
-                                ,LocCode = @LocCode
+                                 LocCode = @LocCode
                                 ,LocName = @LocName
                                 ,LocLatitude = @LocLatitude
                                 ,LocLongitude = @LocLongitude
@@ -110,6 +110,71 @@ namespace RigRepository
             {                
                 throw ex;
             }
+        }
+        public LocationModel GetLocation(int locId)
+        {
+            try
+            {
+                LocationModel model = new LocationModel();
+                string query = String.Format(@"SELECT [LocId]
+                                  ,[LocCode]
+                                  ,[LocName]
+                                  ,[LocLatitude]
+                                  ,[LocLongitude]
+                                  ,[LocRemarks]
+                              FROM [Location] WHERE [LocId] = {0}",locId);
+
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    DataSet ds = fun.fillComboDataset(query);
+                    if(ds.Tables.Count>0)
+                    {
+                        foreach (DataRow item in ds.Tables[0].Rows)
+                        {
+                            model.LocCode = item["LocCode"].ToString();
+                            model.LocId = locId;
+                            model.LocLatitude = item["LocLatitude"].ToString();
+                            model.LocLongitude = item["LocLongitude"].ToString();
+                            model.LocName = item["LocName"].ToString();
+                            model.LocRemarks = item["LocRemarks"].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool DeleteLocation(int LocId)
+        {
+            try
+            {
+                string query = @"Delete from Location where LocId = @LocId;";
+                List<SqlParameter> param = new List<SqlParameter>();
+                param.Add(new SqlParameter("@LocId", LocId));
+                fun.OpenConnection();
+                if(fun.getConnection().State == ConnectionState.Open)
+                {
+                    fun.execQry(query, param);
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Please check network connection");
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
         }
     }
     public class LocationModel

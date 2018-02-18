@@ -327,6 +327,25 @@ namespace RigRepository
             }
             return model;
         }
+        public DataSet GetLastWellDetails(int WellId)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                string query = String.Format(@"select top 1 ISNULL(CurrentDepth,0)CurrentDepth, ISNULL(SecId,0)SecId 
+                from WellOperations where WellId = {0} order by WellOpId desc", WellId);
+                fun.OpenConnection();
+                if (fun.getConnection().State == ConnectionState.Open)
+                {
+                    ds = fun.fillComboDataset(query);
+                }
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
     public class WellOperationsModel
     {

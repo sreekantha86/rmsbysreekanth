@@ -13,7 +13,7 @@ namespace RigServiceSystem
     public partial class Location : Form
     {
         LocationRepository repo = new LocationRepository();
-        int LocId = 0;
+        public int LocId = 0;
         public Location()
         {
             //test
@@ -95,6 +95,33 @@ namespace RigServiceSystem
                 {
                     MessageBox.Show("Successfully Updated");
                     this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException != null ? ex.InnerException.Message : ex.Message);
+            }
+        }
+
+        private void Location_Load(object sender, EventArgs e)
+        {
+            if(LocId > 0)
+            {
+                fillData();
+            }
+        }
+        private void fillData()
+        {
+            try
+            {
+                LocationModel model = repo.GetLocation(LocId);
+                if(model != null)
+                {
+                    txtCode.Text = model.LocCode;
+                    txtLatitude.Text = model.LocLatitude;
+                    txtLongitude.Text = model.LocLongitude;
+                    txtName.Text = model.LocName;
+                    txtRemarks.Text = model.LocRemarks;
                 }
             }
             catch (Exception ex)

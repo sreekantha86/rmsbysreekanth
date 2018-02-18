@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdPin = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdDelete = new DevExpress.XtraEditors.PictureEdit();
+            this.cmdEdit = new DevExpress.XtraEditors.PictureEdit();
             this.cmdNew = new DevExpress.XtraEditors.PictureEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,15 +39,14 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdPin = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDelete.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -54,33 +54,47 @@
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Controls.Add(this.cmdPin);
-            this.panelControl1.Controls.Add(this.pictureEdit3);
-            this.panelControl1.Controls.Add(this.pictureEdit2);
+            this.panelControl1.Controls.Add(this.cmdDelete);
+            this.panelControl1.Controls.Add(this.cmdEdit);
             this.panelControl1.Controls.Add(this.cmdNew);
             this.panelControl1.Location = new System.Drawing.Point(2, 2);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(579, 36);
             this.panelControl1.TabIndex = 4;
             // 
-            // pictureEdit3
+            // cmdPin
             // 
-            this.pictureEdit3.EditValue = global::RigServiceSystem.Properties.Resources.delete;
-            this.pictureEdit3.Location = new System.Drawing.Point(546, 3);
-            this.pictureEdit3.Name = "pictureEdit3";
-            this.pictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit3.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit3.Size = new System.Drawing.Size(28, 29);
-            this.pictureEdit3.TabIndex = 2;
+            this.cmdPin.EditValue = global::RigServiceSystem.Properties.Resources.pin;
+            this.cmdPin.Location = new System.Drawing.Point(72, 2);
+            this.cmdPin.Name = "cmdPin";
+            this.cmdPin.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPin.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdPin.Size = new System.Drawing.Size(28, 29);
+            this.cmdPin.TabIndex = 5;
+            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
             // 
-            // pictureEdit2
+            // cmdDelete
             // 
-            this.pictureEdit2.EditValue = global::RigServiceSystem.Properties.Resources.edit;
-            this.pictureEdit2.Location = new System.Drawing.Point(38, 3);
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit2.Size = new System.Drawing.Size(28, 29);
-            this.pictureEdit2.TabIndex = 1;
+            this.cmdDelete.EditValue = global::RigServiceSystem.Properties.Resources.delete;
+            this.cmdDelete.Location = new System.Drawing.Point(546, 3);
+            this.cmdDelete.Name = "cmdDelete";
+            this.cmdDelete.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdDelete.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdDelete.Size = new System.Drawing.Size(28, 29);
+            this.cmdDelete.TabIndex = 2;
+            this.cmdDelete.EditValueChanged += new System.EventHandler(this.pictureEdit3_EditValueChanged);
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.EditValue = global::RigServiceSystem.Properties.Resources.edit;
+            this.cmdEdit.Location = new System.Drawing.Point(38, 3);
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdEdit.Properties.Appearance.Options.UseBackColor = true;
+            this.cmdEdit.Size = new System.Drawing.Size(28, 29);
+            this.cmdEdit.TabIndex = 1;
+            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
             // 
             // cmdNew
             // 
@@ -156,17 +170,6 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             // 
-            // cmdPin
-            // 
-            this.cmdPin.EditValue = global::RigServiceSystem.Properties.Resources.pin;
-            this.cmdPin.Location = new System.Drawing.Point(72, 2);
-            this.cmdPin.Name = "cmdPin";
-            this.cmdPin.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdPin.Properties.Appearance.Options.UseBackColor = true;
-            this.cmdPin.Size = new System.Drawing.Size(28, 29);
-            this.cmdPin.TabIndex = 5;
-            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
-            // 
             // RigList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,12 +187,12 @@
             this.Load += new System.EventHandler(this.RigList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdDelete.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmdNew.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdPin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -197,8 +200,8 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit3;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.PictureEdit cmdDelete;
+        private DevExpress.XtraEditors.PictureEdit cmdEdit;
         private DevExpress.XtraEditors.PictureEdit cmdNew;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
